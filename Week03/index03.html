@@ -143,7 +143,7 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/ZO8QEG4x0wY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
   <p>I knew that the sliding mechanism would move the distance of the diameter of the circle, and I wanted the back and forth movement to be large, as the fish would be wiggling back and forth through a curved track (in the ideal scenario). I decided the best way to figure out how it would actually fit together was to do some prototyping.</p><br>
   <p>I inherited my mother's disdain for throwing anything away, and thus I already had a nice stash of cardboard and styrofoam as well as miscellaneous plastic and tin items. My husband has a stellar collection of screws and bolts and other hardware, which was also a great resource. My local Buy Nothing group hooked me up with a stash of wire hangers. All that plus a hot glue gun (or 2), some disposable chopsticks, and a bolt cutter and I was ready to go. Oh and eye protection. Safety first!</p><br>
-  <iframe src="https://giphy.com/embed/3oEjHWuJieghzbBams" width="480" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><i>Mommy Dearest is a classic</i><a href="https://giphy.com/gifs/3oEjHWuJieghzbBams">via GIPHY</a></p><br>
+  <iframe src="https://giphy.com/embed/3oEjHWuJieghzbBams" width="480" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><i>Mommy Dearest is a classic and you gotta see it </i><a href="https://giphy.com/gifs/3oEjHWuJieghzbBams">(via GIPHY)</a></p><br>
   <p>I had some mishaps trying to create cardboard gears and spent WAY TOO LONG measuring and drawing little gear teeth and cutting it out only to learn that it just was not going to work. But then, I realized that I had a strip of corrugation that I could use as the gear teeth. The size of my large gear was determined by the length of corrugation I had. I traced out 3 identically sized circles using a mixing bowl, glued those together and then glued the corrugation to the outside. I also made a smaller gear that would be attached to the motor, since all my tests with motor speed were just too fast for the mechanism I wanted. I knew if I used a smaller gear on the motor to move the larger gear that ran the crank that I could slow the overall speed of the fish down and also magnify the force of the motor.</p>
   <div class="row">
     <div class="col-sm-4"> 
@@ -175,18 +175,40 @@
   </div>
   <br>
 
-<p> For my circuitry, I used the circuit plan we did together in the lab with the potentiometer to control the speed (it effectively functioned as an on/off switch though). Unfortunately, I continued to have issues with my motor not being able to push the mechanism. I thought the issue was friction so I added a weeling mechanism. I quickly realized that I could not put a wheel on the wire connected to the winding lever, so instead I mounted the wheels to the rear only. But the motor still did not work! I thought the problem was power and speed, but Nathan helpfully informed me that I should mounting my motor into something to keep it stable - how did I miss this? So I gave that a go. </p>
-<div class="row">
-    <div class="col-sm-3"> 
+<p> For my circuitry, I used the circuit plan we did together in the lab with the potentiometer (pot) to control the speed (it effectively functioned as an on/off switch though because the pot didn't have a fine enough range). I measured the voltage with the multimeter first at the beginning of the circut which produced 5.14V. Then I measured at the motor with the pot turned to the left just to confirm that everything was working. The voltage read was 0V, so that was good. Then I turned the pot all the way to the right and got a reading of 5.09V, which means that the pot is eating up 0.03V. Then I measured the voltage using the Arduino Analog In to measure the range of voltage on the pot. Nathan's Tuesday tutorial was very helpful in this regard. I loaded up Arduino and uploaded the analogReadSerial sketch from the Basics package, which will produce a range of unitless values from 0 to 1023 and these values correspond to voltage. Again, I first measured the the voltage at the beginning of the circuit, just to be safe and got a steady 1023 reading. Then I placed my A0 pin connecting wire at the middle pin of pot. I wanted to have a good sense of where in the pot rotations I was, so I put a little mark on it to indicate the max position (1023 or 5.09V). Turning the pot, it took about 1/4 turn before the voltage began to decrease and as I turned it decreased fairly steadily until about 3/4 of the way around when it reached values below 10. The pot only turns about 80% of the way around (as in at it's lowest, the marks I made didn't line up again). This meant that for more than 31% of the rotation range of the pot, the voltage was coming through at full power.</p>
+  <div class="row">
+    <div class="col-sm-4"> 
       <img src="Circuit1.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>the circuit and motor</i></p>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-4">
+      <img src="MeasuringV.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>measuring voltage with the multimeter</i></p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="MarkingthePot.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>marking the pot</i></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"> 
+      <img src="AnalogReadSerial.png" class="img-responsive margin" style="width:100%" alt="Image"><p><i>loading the program</i></p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="ARS1023.png" class="img-responsive margin" style="width:100%" alt="Image"><p><i>reading the microcontroller analog in</i></p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="Potsketch.png" class="img-responsive margin" style="width:100%" alt="Image"><p><i>side-view sketch of the pot as it turns</i></p>
+    </div>
+  </div>
+  <br>
+
+<p>Unfortunately, I continued to have issues with my motor not being able to push the mechanism. I thought the issue was friction so I added a weeling mechanism. I quickly realized that I could not put a wheel on the wire connected to the winding lever, so instead I mounted the wheels to the rear only. But the motor still did not work! I thought the problem was power and speed, but Nathan helpfully informed me that I should mounting my motor into something to keep it stable - how did I miss this? So I gave that a go. </p>
+<div class="row">
+    <div class="col-sm-4"> 
       <img src="WheelFail.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>tried a wheel and failed - it hits the gear</i></p>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-4"> 
       <img src="WheelSuccess.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>that's better</i></p>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-4"> 
       <iframe src="https://giphy.com/embed/wP1NiDadAMQPdk1Ns5" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><i>the motor fails because it isn't secured </i><a href="https://giphy.com/gifs/wP1NiDadAMQPdk1Ns5">(via GIPHY)</a></p>
     </div>
   </div>
@@ -199,7 +221,7 @@
       <img src="MotorMt2.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>stabilizing the motor and gears with a base</i></p>
     </div>
      <div class="col-sm-4"> 
-      <iframe src="https://giphy.com/embed/YxRcLhdzygLYeKIm9h" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><i>The cat prefers to nap </i><a href="https://giphy.com/gifs/YxRcLhdzygLYeKIm9h">(via GIPHY)</a></p>
+      
     </div>
   </div>
   <br>
@@ -214,10 +236,22 @@
     </div>
   </div>
   <br>
+<p>Now we just have to see what the kitty thinks!</p>
+  <div class="row">
+    <div class="col-sm-4"> 
+      <iframe src="https://giphy.com/embed/YxRcLhdzygLYeKIm9h" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><i>at first the cat prefers to nap </i><a href="https://giphy.com/gifs/YxRcLhdzygLYeKIm9h">(via GIPHY)</a></p>
+    </div>
+    <div class="col-sm-6"> 
+      <img src="suspiciouscat.jpg" class="img-responsive margin" style="width:100%" alt="Image"><p><i>later she investigates</i></p>
+    </div>
+  </div>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wGNrG1ydLpc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+  </div>
+  <br>
 
-<!-- <p>TODO</p>
-<p>measure the voltage using a multimeter</p>
-<p>run analog test</p> -->
+
 
 </div>
 </body>
