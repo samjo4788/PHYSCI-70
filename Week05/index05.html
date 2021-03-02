@@ -111,7 +111,7 @@
 
 <!-- Second Container -->
 <div class="container-fluid2 bg-9 text-center">
-  <p><b>Week 04: Microcontroller Programming</b></p>
+  <p><b>Week 05: 3D Design & Printing</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </a> -->
@@ -122,142 +122,80 @@
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
-      <p><b>The Idea</b></p>
+      <p><b>Designing a small object...</b></p>
       <br>
-      <p style="font-size:75%""><i>Here's a creepy pager commercial from the 90s</i><br>
-        <iframe width="270" height="150" src="https://www.youtube.com/embed/jrUVYTqvIfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></P>
-      <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+      <br>
+      <p><img src="CatapultFrame1.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      <br>
+      <p><img src="CatapultAssembly_Final.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      <br>
+      <p><iframe src="https://giphy.com/embed/HNDV2nXVUltZ8qfvT0" width="300" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p style="font-size:50%"><a href="https://giphy.com/gifs/HNDV2nXVUltZ8qfvT0">via GIPHY</a></p></p>
     </div>
     <div class="col-sm-9"> 
-      <p>For this week’s assignment I considered building on Week 3, but I realized that what I would want to program with Arduino would be simple compared to the amount of work I would need to do to reconstruct the movement mechanism for the kinetic sculpture. So, I decided to go in a different direction.</p>
-      <p>My husband had been asking me for an “on air” switch that we could use to let the other person know when we were on a zoom call (our desks abut one another in our tiny apartment). This also, really did not require any programming. So instead he suggested a pager, so I could indicate to him when I needed something based on different LED patterns. I thought it would be cool to add an “urgency” indicator, where the speed of the blinking LEDs would increase or decrease based on adjustments made to a potentiometer.</p>
-      <p>I’m curious if I can use the piezo sensor as a kind of button, to indicate when the lights should come on or off, and which lights should illuminate.
-      </p>
+      <p>This week we were tasked with designing a small 3-D object that could not be easily created using subtractive methods and that would take less than an hour to print. I wanted to create something that had movable parts because I was curious about how the 3-D printer creates things like hinges that can’t be disassembled. Again, inspired by our cat, my husband suggested a small catapult that could propel her toys or treats around the room.</p>
+      <p>I considered designing something that wouldn’t require the use of a rubber band, but since I’ve never 3-D printed anything and have limited experience with the pliability of the filament material, I thought it might be best not to tempt fate.</p>
+      <p>I drafted a few ideas on graph paper and then used Fusion 360 to make my design. I did my best to limit the amount of material I used to create the structure, while still making sure it would be structurally viable. I also wanted to design the structure so that I wouldn't need any supports for the printing process. My original design in Fusion360 measured at roughly 10cm square.</p>
+      <p><iframe src="https://myhub.autodesk360.com/ue2f9e3f6/shares/public/SH56a43QTfd62c1cd96878c06e439bcfed80?mode=embed" width="800" height="600" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe></p>
+      <p>I exported the completed design to PrusaSlicer and making no changes to the automatic infill percent (20%) and keeping the size at 100%, the slicer computed a print time of a whopping 5 hours and 18 minutes! Changing the infill percentage didn't make too much of a difference (minutes) so I adjusted the size. Dropping it to 50% put my print time at 57minutes. Phew! This will be a wee catapult, but I guess that will just make it very very cute.</p>
+      <div class="row">
+      <div class="col-sm-6">
+      <p><img src="Prusa_5hr.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      </div>
+      <div class="col-sm-6">
+      <p><img src="CatapultPrusa_1hr.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      </div>
+      <p><a download href='./ps70_Jones_CatapultAssembly.stl'>Download my STL file</a></p>
+      <p><a download href='./ps70_Jones_Catapult.gcode'>Download my g-code file</a></p>
 
-      <!-- <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+    </div>
+    
+
     </div>
   </div>
+
+</div>
+<div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>The Basic LED Blinking Circuit</b>
+    <p><b>Scan Something in 3-D</b>
       <br>
       <br>
-      <iframe src="https://giphy.com/embed/XmWzjdJsSJVj0YsIRu" width="270" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XmWzjdJsSJVj0YsIRu">via GIPHY</a></p>
-    </p>
-      <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+      <p><img src="CatFront.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      <p><img src="CatBack.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
     </div>
     <br>
   <div class="col-sm-9">
-    <p>First, I decided I’d figure out how to control the blink of a single LED with a pot. I knew that the value of the potentiometer would be controlling the value of the delay between commands to turn the LED on and off. The LED commands would be digitalWrite() functions but the pot would be using an analogRead() function. This actually turned out to be very simple. After perusing the beginning of the Arduino Project Book and doing some Arduino googling, I found some <a href="https://www.arduino.cc/en/tutorial/potentiometer">basic code for linking a pot to the speed of the LED blink.</a></p>
-    <p>I made a simple LED circuit using a 470 Ohm resistor to start and was able to successfully get my LED to blink.</p>
+    <p>I experimented with a few 3-D scanner apps, but since I have an older phone, I was limited. Plus, the apps meant for iphoneX seemed to be mostly for face scanning, which I didn't want to do. I ended up using Qlone to scan as it was the only app I was able to get working (unfortunatley Scan3D crashed when I tried to load it). I visited my parents this weekend (the first time I'd seen them since September!!) and decided to take advantage of their resources -- a lazy susan, and a variety of tchotchkes. Continuing with the cat theme, I chose a small porcelain figurine of a white kitten because it was (a) small and (b) I wanted to see how the 3-D scanner would pick up its textured fur.</p>
+    <p>Scanning with the lazy susan really made the process much more pleasant than my earlier experiments walking around objects. The initial scan of the object had a very pointy top,  a trait that seems to be common to the Qlone app. Selecting "flatten top" overcompensated, so instead I took advantage of another feature of the app. Qlone allows you to take scans of the object in multiple positions to improve the scan. I took a second scan of the cat on its side and this produced a much better composite scan.</p>
+    <p>A major downside to Qlone is that while you can make scans for free and export them as GIFs, Videos, or Images, you have to pay to export any other filetypes.</p>
+    <div class="row">
+    <div class="col-sm-6">
+      <p><img src="Qlone_Cat_Flat.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
     </div>
+    <div class="col-sm-6">
+      <p><img src="QloneScan2.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+    </div>
+    </div>
+    <p><iframe src="https://giphy.com/embed/Dj8qvlZfpN636m5nYd" width="480" height="264" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p style="font-size:50%"><a href="https://giphy.com/gifs/Dj8qvlZfpN636m5nYd">via GIPHY</a></p>
   </div>
+  </div>
+
   <br>
   <div class="row">
   <div class="col-sm-3">
-    <p><b>Adding the Pot</b>
-      <br>
-      <br>
-      <iframe width="270" height="150" src="https://www.youtube.com/embed/jYDeGwNNuHQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </p>
+    <p><b>3-D Modelling for my Final Project</b>
+      
       <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
     </div>
   <div class="col-sm-9">
-    <p>Now to incorporate the potentiometer. I took a look at the example code for controlling a motor with a pot and followed some of those directions for the microcontroller and board set up. I then borrowed the setup commands for the pot and then changed the formula to be about the delay. And it worked!
-    <br>
-    <pre><code class="language-arduino">
-int led = 13; // the pin the LED is connected to
-
-void setup() {
-  pinMode(led, OUTPUT); // Declare the LED as an output
-  pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
-  pinMode(A4, OUTPUT);  //This will be 3.3V for the pot.
-  digitalWrite(A0, LOW);
-  digitalWrite(A4, HIGH);
-  digitalWrite(led, LOW); // start with the LED off
-}
-
-void loop() {
-  int pot_value = analogRead(A2); // pot wiper is on A2
-  int delay_level = map(pot_value, 0, 1023, 2000, 0); // map motor level to delay period
-  digitalWrite(led, HIGH); // Turn the LED on
-  delay(delay_level); // wait for a time dependent on the pot level
-  digitalWrite(led, LOW); //Turn the LED off
-  delay(delay_level); // wait for a time dependent on the pot level
-}
-}
-    </code></pre>
-    </p>
-    </div>
-  </div>
-    <div class="row">
-  <div class="col-sm-3">
-    <p><b>Adding more LEDs</b>
-      <br></p>
-      <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
-    </div>
-  <div class="col-sm-9">
-    <p>Now I set up three different LEDs and connected them to three different buttons. This worked without changing any code at all.</p>
-    <p><iframe src="https://giphy.com/embed/JWuMweaYW2GqiXxPD8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/JWuMweaYW2GqiXxPD8">via GIPHY</a></p>
-    <br>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <p><b>The Piezo Disc</b></p>
-    <p><img src="PiezoSetup.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
-    <p><img src="LEDSetUp.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
-    <p><img src="MetroSetUp.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
-    </div>
-
-  <div class="col-sm-9">
-    <p>This last step proved to be the most difficult. I wanted to try and use a Piezo disc instead of buttons to control which LEDs turned on. First I set up each of my LEDs onto different pins. <br>
-<pre><code class="language-arduino">
-const int piezoSensor = A5; // analog pin in piezo is connected to
-int sensorReading = 0; //variable to store value read from sensor
-int led = 13; // the pin the LED is connected to
-
-void setup() {
-  pinMode(led, OUTPUT); // Declare the LED as an output
-  pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
-  pinMode(A4, OUTPUT);  //This will be 3.3V for the pot.
-  digitalWrite(A0, LOW);
-  digitalWrite(A4, HIGH);
-  digitalWrite(led, LOW); // start with the LED off
-  Serial.begin(9600); //start serial monitor window
-}
-
-void loop() {
-  sensorReading = analogRead(piezoSensor);
-  Serial.println(sensorReading);
-  if(sensorReading > 0 && sensorReading <=100) {
-  int pot_value = analogRead(A2); // pot wiper is on A2
-  int delay_level = map(pot_value, 0, 1023, 2000, 0); // map motor level to delay period
-  digitalWrite(led, HIGH); // Turn the LED on
-  delay(delay_level); // wait for a time dependent on the pot level
-  digitalWrite(led, LOW); //Turn the LED off
-  delay(delay_level); // wait for a time dependent on the pot level
-
-  delay(10);
-  }
-
-  else {
-    digitalWrite(led, LOW); //Turn LED off
-
-    delay(10);
-  }
-}
-</code></pre>
-    <p>I explored a few different tutorials including this one for <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Knock">basic Knock sensing</a> and <a href="https://www.sensingthecity.com/vibrations-to-light-use-a-piezo-element-to-control-an-led-strip/">this code for controlling an LED strip with a piezo disc</a>. I was already using my A0-A4 pins for the pot, so I used the A5 pin for my piezo disc along with a 1M ohm resistor. At first, I set this up wrong. (Later, I realized this and added a diode. I wrote the code to respond to different thresholds of vibration.</p>
-    <p>This seemed to work but the piezo sensor was very very sensitive...so I tried modifying the thresholds and that sort of worked a little better. (note in the video below, my piezo sensor is hooked up strangely.... I later adjusted this based on the tutorial I mentioned above.)</p>
-    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/Gux3PHDmYaM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-    <p>I still wanted to incorporate a sequence of knocks however to signal which LED should turn on. I used a combination of code from this <a href="https://www.programmingelectronics.com/how-to-make-a-secret-knock-detector-to-trigger-anything-with-only-an-arduino-and-a-few-cheap-components/">secret knock tutorial</a> and this <a href="https://www.instructables.com/Aruidno-LED-Knock-Puzzle/">LED knock puzzle tutorial.</a> The code was starting to get complicated and though I think I finally figured out the correct commands...it wasn't translating into the circuit. I then tried to go back and retest my original threshold code and that didn't work either, which is drawing me to conclude that I may have damaged my piezo sensor? ::crying:: </p>
-    <p><a href="./LEDPiezoBlink_Thresholds">Download my code with thresholds</a></p>
-    <p><a href="LEDPiezoBlink_KnockSequence">Download my code for knock sequences</a></p>
-
-    </p>
-    </div>
+    <p>As I am making a glove, I don't anticipate needing to 3-D print anything. Instead, I did some research on conductive thread and different wearable sensors and wearable inventions generally. I ordered some conductive thread to experiment with and along the way discovered that conductive yarn also exists. I may play around with that as well, as crocheting a finger pad may be easier than embroidering one.</p>
   </div>
 </div>
+</p>
+</div>
+</div>
+</div>
+</body>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
