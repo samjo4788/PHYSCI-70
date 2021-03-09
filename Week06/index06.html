@@ -111,7 +111,7 @@
 
 <!-- Second Container -->
 <div class="container-fluid2 bg-9 text-center">
-  <p><b>Week 05: 3D Design & Printing</b></p>
+  <p><b>Week 06: Electronic Input Devices</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </a> -->
@@ -122,31 +122,77 @@
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
-      <p><b>Designing a small object...</b></p>
-      <br>
-      <br>
-      <p><img src="CatapultFrame1.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
-      <br>
-      <p><img src="CatapultAssembly_Final.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
-      <br>
-      <p><iframe src="https://giphy.com/embed/HNDV2nXVUltZ8qfvT0" width="300" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p style="font-size:50%"><a href="https://giphy.com/gifs/HNDV2nXVUltZ8qfvT0">via GIPHY</a></p></p>
+      <p><b>Capacitive Sensors</b></p>
+      
     </div>
     <div class="col-sm-9"> 
-      <p>This week we were tasked with designing a small 3-D object that could not be easily created using subtractive methods and that would take less than an hour to print. I wanted to create something that had movable parts because I was curious about how the 3-D printer creates things like hinges that can’t be disassembled. Again, inspired by our cat, my husband suggested a small catapult that could propel her toys or treats around the room.</p>
-      <p>I considered designing something that wouldn’t require the use of a rubber band, but since I’ve never 3-D printed anything and have limited experience with the pliability of the filament material, I thought it might be best not to tempt fate.</p>
-      <p>I drafted a few ideas on graph paper and then used Fusion 360 to make my design. I did my best to limit the amount of material I used to create the structure, while still making sure it would be structurally viable. I also wanted to design the structure so that I wouldn't need any supports for the printing process. My original design in Fusion360 measured at roughly 10cm square.</p>
-      <p><iframe src="https://myhub.autodesk360.com/ue2f9e3f6/shares/public/SH56a43QTfd62c1cd96878c06e439bcfed80?mode=embed" width="800" height="600" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe></p>
-      <p>I exported the completed design to PrusaSlicer and making no changes to the automatic infill percent (20%) and keeping the size at 100%, the slicer computed a print time of a whopping 5 hours and 18 minutes! Changing the infill percentage didn't make too much of a difference (minutes) so I adjusted the size. Dropping it to 50% put my print time at 57minutes. Phew! This will be a wee catapult, but I guess that will just make it very very cute.</p>
-      <p>While I think the frame could have been made using subtractive methods, the bucket and arm portion of the catapult are more easily made using additive methods. Plus, the hinge that connected the two together could not have been made using subtractive methods, unless the two pieces were cut separately and the hinge mechanism adjusted so that it could be put together and taken back apart.</p>
+      <p>I was curious about measuring overlap of two parallel capacitive plates to measure positioning. I trimmed the capacitive sensors in our kits so they would be an equal size of 2 inches by 1.5 inches. And sought to measure the percentage of area overlap.</p>
+      <p>I set up my circuit based on our in-class tutorial and used a modified version of <a href="https://roberthart56.github.io/SCFAB/SC_lab/Sensors/tx_rx_sensors/rx_tx02.txt">Rob’s code for tx_rx sensing with a rolling average</a>. I increased the number of samples to 5000 to further reduce noise and make it easier to manage the data. I also set my circuit up the way we discussed in class, using 2 resistors to help reduce noise the data as well.</p>
+      <p><pre><code class="language-arduino">
+        int read_high;
+        int read_low;
+        int diff;
+        long int sum;
+        int N_samples = 5000;    //Number of samples to take.  Larger number slows it down, but reduces scatter.
+
+        int analog_pin = A0;
+        int tx_pin = 4;
+
+        void setup() {
+        pinMode(4,OUTPUT);      //Pin 4 provides the voltage step
+        Serial.begin(115200);
+        }
+
+        void loop() {
+
+        sum = 0;
+
+        for (int i = 0; i < N_samples; i++){
+        digitalWrite(tx_pin,HIGH);              //Step the voltage high on conductor 1.
+        read_high = analogRead(analog_pin);        //Measure response of conductor 2.
+        delayMicroseconds(100);            //Delay to reach steady state.
+        digitalWrite(tx_pin,LOW);               //Step the voltage to zero on conductor 1.
+        read_low = analogRead(analog_pin);         //Measure response of conductor 2.
+        diff = read_high - read_low;       //desired answer is the difference between high and low.
+        sum += diff;                       //Sums up N_samples of these measurements.
+        }
+        Serial.println(sum);
+        //delay(100);
+        }
+
+      </code></pre></p>
+      <p>I used my quilting ruler as a measuring guide. I taped the first sensor pad to my quilting mat, and then placed my quilting ruler over the sensor. I then taped my second sensor to a clear plastic picture frame so that I could slide the second sensor over the first without changing the force or permativity. I slide the top sensor over the bottom sensor in 1/8 inch increments, starting with the sensors adjacent but not overlapping and sliding the top sensor from left to right until they were adjacent but not overlapping again. </p>
+
       <div class="row">
-      <div class="col-sm-6">
-      <p><img src="Prusa_5hr.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      <div class="col-sm-4">
+      <p><img src="Circuitry.jpg" class="img-responsive margin" style="width:100%" alt="Circuitry"></p>
       </div>
-      <div class="col-sm-6">
-      <p><img src="CatapultPrusa_1hr.png" class="img-responsive margin" style="width:100%" alt="Image"></p>
+      <div class="col-sm-4">
+      <p><img src="BottomPlate.jpg" class="img-responsive margin" style="width:100%" alt="Bottom Plate Set Up"></p>
       </div>
-      <p><a download href='./ps70_Jones_CatapultAssembly.stl'>Download my STL file</a></p>
-      <p><a download href='./ps70_Jones_Catapult.gcode'>Download my g-code file</a></p>
+      <div class="col-sm-4">
+      <p><img src="PlateSetup2.jpg" class="img-responsive margin" style="width:100%" alt="Capacitive Sensor Set Up"></p>
+      </div>
+     </div>
+
+     <p>
+      <p>To measure the output, I let the serial monitor run and then positioned my sensor. Holding the sensor in place with one hand, I then cleared the output of the serial monitor with the other and waited for 10 readings to appear. I then copied those first ten readings into a text file with the position of the sensor. I averaged these ten readings for each position of the sensor to get an output value. To make the output values even easier to read, I also divided the values by 1000. I also measured the sensor at two extremes, with the top sensor to the left of the bottom sensor separated by a 1 inch gap and the top sensor to the right of the bottom sensor separated by a 1 inch gap. These two "gap" positions appear as the first and last data point. The photo series below shows the path of the top sensor across the bottom sensor from left to right.</p>
+      <div class="row">
+      <div class="col-sm-4">
+      <p><img src="Position00.jpg" class="img-responsive margin" style="width:100%" alt="Position 0">
+        <br>Position 00: capacitive plates are adjacent but not overlapping</p>
+      </div>
+      <div class="col-sm-4">
+      <p><img src="Position09.jpg" class="img-responsive margin" style="width:100%" alt="Position 09"><br>Position 09: capacitive plates overlap by 50%</p>
+      </div>
+      <div class="col-sm-4">
+      <p><img src="Postion33.jpg" class="img-responsive margin" style="width:100%" alt="Position 33"><br>Position 33: Capacitive plates are adjacent but not overlapping</p>
+      </div>
+     </div>
+     <p><img src="Chart.png" class="img-responsive margin" style="width:100%" alt="Chart"></p>
+
+      <p><a download href="https://docs.google.com/spreadsheets/d/1ems0VmV2cQ-s943tpqiWQjDBmGytbWUWIinB4vQu-Ds/edit?usp=sharing">Serial Monitor Data & Chart</a></p>
+      
 
     </div>
     
@@ -158,43 +204,18 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>Scan Something in 3-D</b>
-      <br>
-      <br>
-      <p><img src="CatFront.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
-      <p><img src="CatBack.jpg" class="img-responsive margin" style="width:100%" alt="Image"></p>
+    <p><b>Calibrating an Accelerometer</b>
+      </p>
     </div>
     <br>
   <div class="col-sm-9">
-    <p>I experimented with a few 3-D scanner apps, but since I have an older phone, I was limited. Plus, the apps meant for iphoneX seemed to be mostly for face scanning, which I didn't want to do. I ended up using <a href="https://www.qlone.pro/">Qlone</a> to scan as it was the only app I was able to get working (unfortunatley Scan3D crashed when I tried to load it). I visited my parents this weekend (the first time I'd seen them since September!!) and decided to take advantage of their resources -- a lazy susan, and a variety of tchotchkes. Continuing with the cat theme, I chose a small porcelain figurine of a white kitten because it was (a) small and (b) I wanted to see how the 3-D scanner would pick up its textured fur.</p>
-    <p>Scanning with the lazy susan really made the process much more pleasant than my earlier experiments walking around objects. The initial scan of the object had a very pointy top,  a trait that seems to be common to the Qlone app. Selecting "flatten top" overcompensated, so instead I took advantage of another feature of the app. Qlone allows you to take scans of the object in multiple positions to improve the scan. I took a second scan of the cat on its side and this produced a much better composite scan.</p>
-    <p>A major downside to Qlone is that while you can make scans for free and export them as GIFs, Videos, or Images, you have to pay to export any other filetypes.</p>
-    <div class="row">
-    <div class="col-sm-6">
-      <p><img src="Qlone_Cat_Flat.PNG" class="img-responsive margin" style="width:100%" alt="Image"></p>
-    </div>
-    <div class="col-sm-6">
-      <p><img src="QloneScan2.PNG" class="img-responsive margin" style="width:100%" alt="Image"></p>
-    </div>
-    </div>
-    <p><iframe src="https://giphy.com/embed/Dj8qvlZfpN636m5nYd" width="480" height="264" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p style="font-size:50%"><a href="https://giphy.com/gifs/Dj8qvlZfpN636m5nYd">via GIPHY</a></p>
-  </div>
+    <p></p>
+    
   </div>
 
   <br>
-  <div class="row">
-  <div class="col-sm-3">
-    <p><b>3-D Modelling for my Final Project</b>
-      
-      <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
-    </div>
-  <div class="col-sm-9">
-    <p>As I am making a glove, I don't anticipate needing to 3-D print anything. Instead, I did some research on conductive thread and different wearable sensors and wearable inventions generally. I ordered some conductive thread to experiment with and along the way discovered that conductive yarn also exists. I may play around with that as well, as crocheting a finger pad may be easier than embroidering one.</p>
+  
   </div>
-</div>
-</p>
-</div>
-</div>
 </div>
 </body>
 
