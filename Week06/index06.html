@@ -191,7 +191,7 @@
      </div>
      <p><img src="Chart.png" class="img-responsive margin" style="width:100%" alt="Chart"></p>
 
-      <p><a download href="https://docs.google.com/spreadsheets/d/1ems0VmV2cQ-s943tpqiWQjDBmGytbWUWIinB4vQu-Ds/edit?usp=sharing">Serial Monitor Data & Chart</a></p>
+      <p><a href="https://docs.google.com/spreadsheets/d/1ems0VmV2cQ-s943tpqiWQjDBmGytbWUWIinB4vQu-Ds/edit?usp=sharing">Serial Monitor Data & Chart</a></p>
       
 
     </div>
@@ -207,17 +207,57 @@
     <p><b>Calibrating an Accelerometer</b>
       </p>
     </div>
-    <br>
   <div class="col-sm-9">
-    <p></p>
-    
-  </div>
+    <p>I wanted to play around with the accelerometer in our kit because I anticipate this will be an important sensor for my final project. I followed <a href="https://learn.adafruit.com/adafruit-lis3dh-triple-axis-accelerometer-breakout/arduino">this tutorial on the Arduino site </a> (linked to our course website) for the Adafruit LIS3HD accelerometer. They gave instructions for using the hardware 12C wiring or a software SPI wiring (for any microcontroller). I set up my accelerometer and microcontroller using the 12C hardware method, downloaded the appropriate libraries and loaded the acceldemo example. Since I was using 12C, I commented off the lines relating to software SPI. Also, the adafruit guide said that 5V was OK and so I followed their guide and hooked up to 5V….</p>
+    <p>I read a bit more about accelerometers using SparkFun’s tutorials on <a href="https://learn.sparkfun.com/tutorials/accelerometer-basics">accelerometer basics</a> and on <a href="https://learn.sparkfun.com/tutorials/lis3dh-hookup-guide/all">SparkFun's LIS3DH.</a></p>
 
-  <br>
-  
+    <p>The Arduino tutorial code is nice because it explains each of the components of the data read. This particular program produces both raw and normalized data. Nevertheless, I was a little perplexed about the actual calibration, as the accelerometer itself already seemed to have an internal calibration (the nature of the sensor itself). So after some googling, I decided I would try to measure angle rotation using the lazy susan that I “borrowed” from my parents last week. I turned off the raw data serial monitor print in the code and changed the delay to 5000 ms so that I would just have fewer lines of data, and would be able to capture it easier.</p>
+    <p><pre><code class="language-arduino">
+      }
+
+  void loop() {
+  // lis.read();      // get X Y and Z data at once
+  // Then print out the raw data
+  //Serial.print("X:  "); Serial.print(lis.x);
+  // Serial.print("  \tY:  "); Serial.print(lis.y);
+  // Serial.print("  \tZ:  "); Serial.print(lis.z);
+
+  /* Or....get a new sensor event, normalized */
+  sensors_event_t event;
+  lis.getEvent(&event);
+
+  /* Display the results (acceleration is measured in m/s^2) */
+  Serial.print("\t\tX: "); Serial.print(event.acceleration.x);
+  Serial.print(" \tY: "); Serial.print(event.acceleration.y);
+  Serial.print(" \tZ: "); Serial.print(event.acceleration.z);
+  Serial.println(" m/s^2 ");
+
+  Serial.println();
+
+  delay(5000);
+}
+    </code></pre></p>
+    <p><img src="RawandNormalData.png" class="img-responsive margin" style="width:100%" alt="Accelerometer Data"></p>
+    <p>I made a little contraption to indicate degrees of movement in a circle using the lazy susan and a paper guide. I moved the accelerometer in 45 degree intervals. Is this the most interesting use of an accelerometer? No, but it did help me to figure out what was going on with each of the data points in space.</p>
+    <div class="row">
+      <div class="col-sm-6">
+      <p><img src="AccelCircuit.jpg" class="img-responsive margin" style="width:100%" alt="Circuitry"></p>
+      </div>
+      <div class="col-sm-6">
+      <p><img src="AccelCircle.jpg" class="img-responsive margin" style="width:100%" alt="Contraption"></p>
+      </div>
+     </div>
+      <p>The Z value should have mostly stayed the same since I wasn’t changing the height of the accelerometer, so the changes in Z I have attributed to noise and/or the fact that my desk tabletop has a slight slant to it (so the measurements between 90 and 270 will have the Z axis shifted downward compared to the measurements from 270 to 90). For the X and Y values, I expected them to produce mirroring values as they moved around the circle.</p>
+      <p><img src="AccelerometerChart.png" class="img-responsive margin" style="width:100%" alt="Accelerometer Chart"></p>
+      <p><a href="https://docs.google.com/spreadsheets/d/1yIb2__kM3ND-Sq9BXelzAGBLgB_2s7vKKe-nyMJJzQo/edit?usp=sharing">Accelerometer Data & Chart</a></p>
   </div>
 </div>
+</p>
+</div>
+</div>
+</div>
 </body>
+    
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
