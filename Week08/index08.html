@@ -111,7 +111,7 @@
 
 <!-- Second Container -->
 <div class="container-fluid2 bg-9 text-center">
-  <p><b>Week 06: Electronic Output Devices</b></p>
+  <p><b>Week 08: Wireless Communications</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </a> -->
@@ -121,87 +121,67 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>Close Encounters</b></p>
+    <p><b>The Struggle Bus</b></p>
     </div>
   <div class="col-sm-9">
-    <p>This week I was inspired by the classic movie <i>Close Encounters of the Third Kind</i>. I wanted to reproduce the five-tone sequence that the aliens use to communicate with the humans in the film, using my accelerometer as the input device and the piezo buzzer as the output device. The five-tone sequence is D5 - E5 - C5 - C4 - G4 or RE - MI - DO - DO - SO in solfege.</p>
-    <div class="row">
-      <div class="col-sm-6">
-        <p><iframe width="100%" height="394" src="https://musescore.com/user/37911554/scores/6671317/s/vPMn_l/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
-        <span><a href="https://musescore.com/user/37911554/scores/6671317/s/cNJO9V" target="_blank">Close Encounters Sequence</a> by <a href="https://musescore.com/user/37911554">samjo4788</a></span></p>
-        </div>
-      <div class="col-sm-6">
-        <p><img src="kodalyhand-rows.png" class="img-responsive margin" style="width:100%" alt="Solfege Hand Signs">Solfege Hand Signs</p>
-      </div>
-      </div>
-      <p><iframe width="560" height="315" src="https://www.youtube.com/embed/_yIp2huYgD8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-    </div>
+    <p>This week we learned about ESP-NOW communication for microcontrollers such as the ESP32CAM and the Adafruit Huzzah (Feather). For whatever reason (perhaps my almost 33 year-old brain reaching its limit) I really struggled to understand how this communication framework operated, and how to manipulate the code. This was compounded by my difficulties in setting up these boards, as well as by the very limited time I had this week to dedicate to learning all of this new material.</p>
+    <p>My goal for the week was to learn to do something with the ESP32CAM that involved its built-in SD card capabilities, while also fulfilling the assignment prompt to use wireless or wired communications between two microcontrollers. I wanted to experiment with the SD card because I plan to use that in my final project.</p>
   </div>
+  </div>
+</div>
 
 
 <div class="container-fluid bg-7">    
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
-      <p><b>TFT Display</b></p>
-      <br>
-      <iframe width="250" height="315" src="https://www.youtube.com/embed/gzAkAWvb8Ug" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      
+      <p><b>ESP32CAM</b></p>
     </div>
     <div class="col-sm-9"> 
-      <p>In labs we learned how to set up the TFT Display. I decided to continue with this as my output device, displaying positional information from the accelerometer. My plan is to attach the accelerometer to a glove and have the TFT display indicate solfege based on the position of my hand (the accelerometer). If I can do this, then I’ll also try and add a piezo buzzer with the goal of playing the 5-tone sequence from Close Encounters of the Third Kind. I was really inspired by this tone sequence actually, and realized that the solfege equivalents of the tones could be distinct enough for an accelerometer to read. We’ll see.</p>
-      <p>I started with my TFT Display wiring set up (see notes from Slack). And I worked through some of the tutorials on the adafruit site to get comfortable with programming the TFT to display things other than the demo. I took the code from the TFT set up demo and cleaned it up, removing all the commented out lines for other TFT displays. Because I really wanted to spend time getting the microcontroller to read the inputs from the accelerometer to produce a basic text output on the TFT, I didn’t get too involved in all the options a TFT Display can provide.</p>
-      <p>I got the TFT display to read “Do” “Re” and “Mi” by modifying the demo code. </p>
+      <p>I believe that someone evil designed the ESP32CAM because the way to make it work is just bonkers. Or as one of our classmates said in lab on Sunday - "whack." Yes. This is whack. Shout out to Erik Schreiner for pointing out the strange wiring and unwiring process required to get this microcontroller to take code and then run said code.</p>
+      <p><a href="https://randomnerdtutorials.com/program-upload-code-esp32-cam/">This Random Nerd Tutorial for setting up the ESP32CAM</a> details this process, but somehow I missed the important note that the IO0 and GND pins on the microcontroller must be wired together for for the microcontroller to receive code. Then to run the code, you must detach these pins from one another and press the reset button. Why? Why? Why?</p>
+      <p>Since I was also trying to minimize user error, I wanted a very simple code to ensure I could properly upload to the ESP32CAM. This code for operating the built-in LED on the ESP32CAM is buried in the <a href="https://randomnerdtutorials.com/esp32-cam-ai-thinker-pinout/">Random Nerd Tutorial pinout page</a>, but it served me well in getting the microcontroller to do something very basic.</p>
         <p><pre><code class="language-arduino">
+          void setup() {
+          pinMode(33, OUTPUT);
+          }
+
           void loop() {
-          tft.fillScreen(ST77XX_BLACK);
-          testdrawtext("DO", ST77XX_GREEN);
-          delay(4000);
-
-
-          tft.fillScreen(ST77XX_BLACK);
-          testdrawtext("RE", ST77XX_YELLOW);
-          delay(4000);
-
-
-          tft.fillScreen(ST77XX_BLACK);
-          testdrawtext("MI", ST77XX_MAGENTA);
-          delay(4000);
-
-          Serial.println("done");
-          delay(1000);
+          digitalWrite(33, LOW);
           }
         </code></pre></p>
 
-        <p>Next I moved on to the accelerometer to figure out what the input data would be to produce the right outputs. 
+        <p>Next I wanted to figure out how to take a picture with the ESP32CAM and save that picture to the SD card. Again Random Nerd Tutorials guided me with <a href="https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card/">this tutorial on doing exactly that</a>. First I had to reformat my microSD card. Technically, the ESP32CAM is programmed to run with a 4gb microSD. RNT used a 16gb microSD with no issues, but mine was 32gb. It turned out this wasn't an issue. The tutorial provides code that allows you to take a photo using the reset button on the microcontroller. This meant that all of the code for taking the picture and saving it sat in the setup function. While this works for taking a picture and saving it to an SD card, it make it very difficult for me later on to adjust this code to involve an if() function. Also, even though the cam has a built-in LED for flashing, you need really good lighting to get a decent photo.</p>
+        <div class = "row">
+          <div class = "col-sm-6">
+            <p><pre><code class="language-arduino">
+          // Take Picture with Camera
+          fb = esp_camera_fb_get();  
+            if(!fb) {
+            Serial.println("Camera capture failed");
+            return;
+            }
+          
+        </code></pre></p>
+        <p>This innocent looking code snippet is just part of the 152 lines of code required for taking a picture and saving it to an SD card.</p>
+          </div>
+          <div class="col-sm-6">
+          <img src="picture2.jpg" class="img-responsive margin" style="width:100%" alt="a treble clef">
+        </div>
+      </div>
   </div>
-
 </div>
+</div>
+
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>Accelerometer</b></p>
-    <br>
-      <img src="Setup_TFT.jpg" class="img-responsive margin" style="width:100%" alt="an accelerometer is attached to a glove and wired to a TFT display via a microcontroller">
+    <p><b>The Huzzah</b></p>
     </div>
   <div class="col-sm-9">
-    <p>I wired up my accelerometer the way I had set it up for that silly calibration test, except this time the breadboard is attached to the back of a glove. I used my code from the previous week as well to get a sense of the different x, y, and z values for each solfege positions: do, re, mi, and so. I also needed to come up with a way to distinguish low do from high do, as well as to figure out a way to distinguish do and re, which conventionally would have the same planar coordinates.</p>
-    <p>After collecting some data, I made the following determinations for x,y,z values/ranges:<br>
-      when Z > 9 and x < 1 and y < 1, print “DO - low”<br>
-      when Z > 9 and x > 1 and y > 1 print “DO-high”<br>
-      when z < 9 and X < 1 and y > 1 print “RE”<br>
-      when Z < 9 and X > 4 and Y > 1 print “MI”<br>
-      when Z < 1 and X < 1 and Y > 8 print “SO”<br></p>
-    <p>Using if...else functions, I set the Serial Monitor to print the appropriate solfege term when the above conditions were met. At first, it seemed to work, except that "RE" popped up more often than it should have. Also, "SO" was just not happening. I tweaked the values so they were narrower, but this didn't seem to help. I ended up abandoning my attempts at capturing actual solfege hand signs that relied upon 3 different variables, and instead wrote code that measured extreme hand positions and needed only one variable to make an output determination. The variable in question would equal measure of gravity 9.6m/s2. To account for error, I made each variable greater than +8 or less than -8. I also added in a position that would be guaranteed to be silent.<br>
-
-      flat hand = DO high = Z > 8 <br>
-      hand pointed upward = MI = X > 8 <br>
-      hand sideways, palm in = SO = Y > 8 <br>
-      hand sideways, palm out = DO low = Y < -8 <br>
-      hand pointed downward = RE = X < -8 <br>
-      palm up = rest (silence) = Z < -8 <br></p>
-
-   <p>I then attempted to combine my accelerometer code and my TFT code by copy and pasting, and inputing my TFT display preferences into my if...else if statements. Unfortunately, my TFT display wouldn't turn on, and I was getting lost in the code. I decided that I would need to spend more time than I had this week on figuring out how to make the code pieces play nice, and so I decided to incorporate the piezo buzzer and leave the TFT display behind.</p>
+    <p>Unfortunately, I also struggled with setting up the Huzzah microcontroller. This was the result of using the incorrect baud rate in the Serial Monitor (note: it needs to match the setting in the code) but this alone didn't solve my issues. For whatever reason, when trying to upload the SimpleWifiServer example, my serial monitor would read a series of backward question marks, even after fixing the baud rate. After much trial and continued error, I eventually rebooted my computer, and this (insultingly) solve the issue.</p>
+    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/nn2FB1P_Mn8?start=26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    <p>After getting the SimpleWifiServer example to work, I decided to work through the tutorial to get my two microcontrollers to communicate, before getting complicated with buttons and photos. I followed the <a href="https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/">Random Nerd Tutorial for ESPNOW one-way communication</a> and was able to get both micrcontrollers communicating, my Huzzah was the sender and my ESP32CAM was the receiver. I did not however, really understand the example data structure that was provided by RNT and this would later be the cause of much much more strife. I also only have one available USB port that I can use for uploaded code to my microcontrollers, thus the extra time it took to switch between the two when uploading (and the many times I had to quite and reboot Arduino IDE to get it to play nice) meant that everything was taking wayyyy longer than I had planned.</p>
 
 </div>
 
@@ -210,90 +190,159 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>Piezo Buzzer</b></p>
-      <img src="Setup_Buzzer.jpg" class="img-responsive margin" style="width:100%" alt="an accelerometer is attached to a glove and wired to a Piezo Buzzer via a microcontroller">
-      <br>
-      <iframe width="250" height="315" src="https://www.youtube.com/embed/v8CUzEKj4_k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  <div class="col-sm-9">
-    <p>Using the piezo buzzer as an output device for the accelerometer proved to be very simple. I pulled the basic piezo buzzer code with the tone() function off of the class website's piezo buzzer page, and pasted it into my accelerometer code. I used <a href="https://pages.mtu.edu/~suits/notefreqs.html">this guide to musical note frequencies</a> (also from our class site) to find the appropriate Hz values for each tone in the sequence:<br>
-      DO high = c5 = 523.25<br>
-      DO low = c4 = 261.63<br>
-      RE = d5 = 587.33<br>
-      MI = e5 = 659.25<br>
-      SO = g4 = 392.00<br>
-    </p>
-    <p>MAGIC</p>
-    
-    <p><pre><code class="language-arduino">
-
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_LIS3DH.h>
-#include <Adafruit_Sensor.h>
-#define LIS3DH_CS 10
-
-int buzzerPin = 10;
-
-Adafruit_LIS3DH lis = Adafruit_LIS3DH();
-
-void setup(void) {
-  pinMode(buzzerPin, OUTPUT);
-  Serial.begin(115200);
+    <p><b>A tale of two microcontrollers</b></p>
   
+    </div>
+  <div class="col-sm-9">
+    <p>As a reminder, my goal was to press a button on the Huzzah and cause the ESP32CAM to take a photo. I started with the Huzzah and set it up with a button and an LED (to confirm that something was happening, as I can only have one microcontroller feeding the Serial Monitor at once). I adjusted the code from the RNT one-way communication tutorial with an if() function that involved the press of a button. Eventually, I used a pin with an internal pullup resistor, though figuring out which pins could do this AND communicate over ESPNOW was a bit of a battle. With the help fo Victoria and Nathan, however, I figured out that I could use any of the digital pins to do this. My initial approach to combining this code was to wrap the act of sending code into an if() function.</p>
+    <p> I then turned to the ESP32CAM, and this time combined the receiver code from the RNT tutorial with the code for taking a photo and saving to an SD Card. Again, I thought the easiest way to do this would be to wrap all of the many lines of code for taking a photo and saving it into an if() function where the variable was whether or not a message was received.</p>
+    <p>I will spare you the pain that I experienced. The code I wrote was really just nonsense. Needless to say, at first I thought it sort of worked. It seemed at least that the Huzzah was sending when I pressed the button, but the delivery was failing. My button nevertheless was still inconsistent, partially due to faulty wiring and partially due to faulty code. I ended up removing the button entirely, just to try and get the ESP32CAM to take a photo if it received data from the Huzzah, but even this didn't work. Then I tried just turning on the built-in LED on the ESP32CAM through ESPNOW and that also failed.</p>
+
+  </div>
+</div>
+</div>
+ 
+ <div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>Victoria and Nathan to the Rescue</b></p>
+  
+    </div>
+  <div class="col-sm-9">
+    <p>Thankfully in lab, Victoria and Nathan saved the day. Along the way of my failure to understand what was going on with the ESPNOW communication, I overlooked that Nathan had shared code with a very simple "myData" packet structure that would solve many of my issues. They walked me through how to modify this code to read a button press and then cause the LED on the esp32CAM to light up (below, ignore the LED on the Huzzah set up). VICTORY.</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p><img src="w8circuitry.jpg" class="img-responsive margin" style="width:100%" alt="circuitry"></p>
+      </div>
+      <div class="col-sm-6">
+        <p><iframe src="https://giphy.com/embed/RdhsNP62Gu5N1hgCTF" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><a href="https://giphy.com/gifs/RdhsNP62Gu5N1hgCTF">via GIPHY</a></p>
+      </div>
+    </div>
+    <p>ESPNOW Sender Code - Huzzah Button Press</p>
+    <p><pre><code class="language-arduino">
+          // ESP-NOW code for sender
+// esp32cam is receiver
+// huzzah is sender
+
+#include <esp_now.h>
+#include <WiFi.h>
+// REPLACE WITH YOUR RECEIVER MAC Address
+uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0xC1, 0x1B, 0x40};
+//uint8_t broadcastAddress[] = {0x24, 0x62, 0xAB, 0xB0, 0x35, 0xE4};  currently the sender.
+int myData = 0;
+// callback when data is sent
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  Serial.print("\r\nLast Packet Send Status:\t");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+}
+void setup() {
+  // Init Serial Monitor
+  Serial.begin(115200);
+  //set pin A2 as pullup
+  pinMode(A2, INPUT);
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  // Once ESPNow is successfully Init, we will register for Send CB to
+  // get the status of Trasnmitted packet
+  esp_now_register_send_cb(OnDataSent);
+  // Register peer
+  esp_now_peer_info_t peerInfo;
+  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+  peerInfo.channel = 0;
+  peerInfo.encrypt = false;
+  // Add peer
+  if (esp_now_add_peer(&peerInfo) != ESP_OK){
+    Serial.println("Failed to add peer");
+    return;
   }
 }
-
 void loop() {
-  sensors_event_t event;
-  lis.getEvent(&event);
-
-  // if hand is flat
-  if (event.acceleration.z > 8) {
-    tone(buzzerPin, 523.25, 500);
-    Serial.print("DO HIGH");
+  myData = digitalRead(A2);
+  Serial.println(myData);
+  // Send message via ESP-NOW
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
+  if (result == ESP_OK) {
+    Serial.println("Sent with success");
+    Serial.println(myData);
   }
-  
-  //if hand is pointed upward
-  else if (event.acceleration.x > 8) {
-    tone(buzzerPin, 659.25, 500);
-    Serial.print("MI");
+  else {
+    Serial.println("Error sending the data");
+  }
+  delay(1000);
+}alWrite(33, LOW);
+          }
+        </code></pre></p>
+    <p>ESPNOW Receiver Code - ESP32CAM LED On</p>
+    <p><pre><code class="language-arduino">
+      // ESP-NOW code for receiving side
+// receiver is esp32CAM
+// sender is Huzzah
+// based on code from Nathan Melenbrink for potentiometer to servo and adapted for button press to led.
+
+#include <esp_now.h>
+#include <WiFi.h>
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
+int myData = 0;
+// const int ServoPin = 2;
+// setting PWM properties
+// const int ServoChannel = 0;
+// const int resolution = 12;   //use 12 bits of resolution on both ADC and PWM.  Why not.
+// callback function that will be executed when data is received
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  memcpy(&myData, incomingData, sizeof(myData));
+//  Serial.print("Bytes received: ");
+//  Serial.println(len);
+//  Serial.print("byte: ");
+//  Serial.println(myData);
+}
+void setup() {
+  WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // prevent brownouts by silencing them
+  // Initialize Serial Monitor
+  Serial.begin(115200);
+  //set built-in LED as output
+  pinMode(33, OUTPUT);
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  // Once ESPNow is successfully Initialized, we will register for recv CB to
+  // get recv packet info
+  esp_now_register_recv_cb(OnDataRecv);
+  // configure PWM functionalitites
+  // ledcSetup(ServoChannel, 50, 12); // 50 hz PWM, 12-bit resolution
+  // attach the channel to the GPIO to be controlled
+  // ledcAttachPin(ServoPin, ServoChannel);
+}
+void loop() {
+  // ledcWrite(0, 4095 - myData);    // this should be replaced with a map() to get a better range
+  if (myData == 1) {
+    digitalWrite(33, LOW);
+    Serial.print("data received!");
+    Serial.println(myData);
+  }
+  else {
+    digitalWrite(33, HIGH);
   }
 
-  // if hand is sideways, palm in
-  else if (event.acceleration.y > 8) {
-    tone(buzzerPin, 392.00, 500);
-    Serial.print("SO");
-  }
-
-  //if hand is sideways palm out
-  else if (event.acceleration.y < -8) {
-    tone(buzzerPin, 261.63, 500);
-    Serial.print("DO low");
-  }
-
-  //if hand is pointed downward
-  else if (event.acceleration.x < -8) {
-    tone(buzzerPin, 587.33, 500);
-    Serial.print("RE");
-  }
-
-  // if palm is up
-  else if (event.acceleration.z <-8) {
-    tone(buzzerPin, 0, 500);
-    Serial.print("rest");
-  }
-
-  Serial.println();
-
-  delay(2000);
+  delay(100);
 }
 </code></pre></p>
-      </div>
-
-
+ 
+    
+ 
+    </div>
+  </div>
 </div>
-</div>
+    
  
     </div>
   </div>
