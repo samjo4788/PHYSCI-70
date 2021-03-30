@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHYSCI 70: Introduction to Digital Fabrication</title>
+</head>
+
+<body>
+  <button id="turn-on-twitch" name="Twitch">Twitch </button>
+  <button id="turn-on-swing" name="Swing">Swing </button>
+  <button id="turn-off" name="Off">Turn Off </button>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBbTD-VF4bTW-qevsa5UYrs23sOZaHiMmI",
+    authDomain: "servo-cat.firebaseapp.com",
+    databaseURL: "https://servo-cat-default-rtdb.firebaseio.com",
+    projectId: "servo-cat",
+    storageBucket: "servo-cat.appspot.com",
+    messagingSenderId: "183731747839",
+    appId: "1:183731747839:web:e9ff07f77dad17fbd645ca"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // Get a database reference to our blog
+  var ref = firebase.database().ref("/");
+
+  // make the buttons call the function below 
+  document.getElementById('turn-on-twitch').addEventListener('click', Twitch, false);
+  document.getElementById('turn-on-swing').addEventListener('click', Swing, false);
+  document.getElementById('turn-off').addEventListener('click', Off, false);
+
+  function Twitch(){
+    console.log("turning on twitch");
+    ref.update({
+      "SERVO_STATUS": "TWITCH"
+    });
+  }
+
+  function Swing(){
+    console.log("turning on swing");
+    ref.update({
+      "SERVO_STATUS": "SWING"
+    });
+  } 
+
+    function Off(){
+    console.log("turning off");
+    ref.update({
+      "SERVO_STATUS": "OFF"
+    });
+  } 
+</script>
+
+</body>
