@@ -7,9 +7,9 @@
 </head>
 
 <body>
-  <button id="turn-on-twitch" name="Twitch">Twitch </button>
-  <button id="turn-on-swing" name="Swing">Swing </button>
-  <button id="turn-off" name="Off">Turn Off </button>
+  <button id="twitch" name="Twitch">Twitch </button>
+  <button id="swing" name="Swing">Swing </button>
+  <button id="off" name="Off">Turn Off </button>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
@@ -34,9 +34,9 @@
   var ref = firebase.database().ref("/");
 
   // make the buttons call the function below 
-  document.getElementById('turn-on-twitch').addEventListener('click', Twitch, false);
-  document.getElementById('turn-on-swing').addEventListener('click', Swing, false);
-  document.getElementById('turn-off').addEventListener('click', Off, false);
+  document.getElementById('twitch').addEventListener('click', Twitch, false);
+  document.getElementById('tswing').addEventListener('click', Swing, false);
+  document.getElementById('off').addEventListener('click', Off, false);
 
   function Twitch(){
     console.log("turning on twitch");

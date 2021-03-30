@@ -152,50 +152,54 @@
     </div>
   <div class="col-sm-9">
     <p>First I needed to make sure I could turn the servo on and off using Firebase, though. So I modified the code from our LED exercise. At first, I had problems compiling. I kept getting the error "myservo not declared in scope." I wasted about an hour googling, trying to figure out what was going on with my library until I realized that I had forgotten to include the very basic line "Servo myservo;" Seriously, I wanted to bang my head against the desk. </p>
-    <p>My basic code to turn the servo on and off worked, so I experimented with adding the different layers of movement.</p>
+    <p>My basic code to turn the servo on and off worked, so I attached the servo to a cat toy and experimented with different movement directions. To maximize the motion of the string toy, I attached a straw to the servo motor. The code below is what I ended up with:</p>
     <p><pre><code class="language-arduino">
 
       void loop() {
 
-      Firebase.get(firebaseData, "/SERVO_STATUS");          
-      // get servo status input from firebase
-      fireString = firebaseData.stringData();                        // change to e.g. intData() or boolData()
-      Serial.println(fireString);
+  Firebase.get(firebaseData, "/SERVO_STATUS");          
+  // get led status input from firebase
+  fireString = firebaseData.stringData();                        // change to e.g. intData() or boolData()
+  Serial.println(fireString);
   
-      if (fireString == "TWITCH") {                    // compare the input of servo status received from firebase
-      Serial.println("ServoCat Twitch");
-      myservo.write(45);
-      delay(250);
-      myservo.write(0);
-      delay(100);
-      }
+  if (fireString == "TWITCH") {                    // compare the input of servo status received from firebase
+    Serial.println("ServoCat Twitch");
+    myservo.write(0);
+    delay(15);
+    myservo.write(45);
+    delay(15);
 
-      else if (fireString == "SWING") {
-        Serial.println("ServoCat Swing");
-        myservo.write(180);
-        delay(1000);
-        myservo.write(0);
-         delay(1000);
-        }
+  }
 
-        else if (fireString == "OFF") {              // compare the input of servo status received from firebase
-        Serial.println("ServoCat OFF");
+  else if (fireString == "SWING") {
+    Serial.println("ServoCat Swing");
+     for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  }
+
+  else if (fireString == "OFF") {              // compare the input of servo status received from firebase
+    Serial.println("ServoCat OFF");
  
-        }
+  }
 
 
-          else {
-          Serial.println("Please send ON/OFF");
-          }
-
-        delay(1000);                                 // not strictly necessary
-        }
+  else {
+    Serial.println("Please send ON/OFF");
+  }
+}
 
       </code></pre></p>
 
-      <p> The next step is to make this a web-app, so y'all can play with the cat. Oh and attach the servo to a toy! I followed the tutorial on our class Firebase page and set up my web-app.</p>
+      <p> The next step is to make this a web-app, so y'all can play with the cat. I followed the tutorial on our class Firebase page and modified the web-app button and call code.</p>
 
-      <p><a href="Week09/firebase-servocat.html">Link to my Servo Cat Web App</a></p>
+      <p><a href="https://samjo4788.github.io/PHYSCI-70/Week09/firebase-servocat.html">Link to my Servo Cat Web App</a></p>
 
 
 </div>
