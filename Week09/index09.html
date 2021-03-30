@@ -1,57 +1,360 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PHYSCI 70: Introduction to Digital Fabrication</title>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SamJo/physci70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  script>hljs.initHighlightingOnLoad();</script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #404040; /* Dark Gray */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #686868; /* Slate Gray */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #a0a0a0; /* Gray */
+    color: #ffffff;
+  }
+  .bg-5 { 
+    background-color: #bebebe; /* Light Gray */
+    color: #ffffff;
+  }
+  .bg-6 { 
+    background-color: #dcdcdc; /* Lightest Gray */
+    color: #555555;
+  }
+  .bg-7 { 
+    background-color: #f8f8f8; /* White Gray */
+    color: #555555;
+  }
+   .bg-8 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-9 { 
+    background-color: #ffdd33; /* Yellow */
+    color: #555555;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .container-fluid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
 </head>
-
 <body>
-  <button id="turn-on" name="turnon">Turn On </button>
-  <button id="turn-off" name="turnoff">Turn Off </button>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">SamJo/ps70</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/About/indexA.html">ABOUT</a></li>
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">FINAL PROJECT</a></li>
+        <!--         <li><a href="#">WHERE</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<!-- First Container -->
+<!-- <div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Physci 70</h3>
+  <p>Welcome to my site for ps70 Spring 2021, where I will document my work throughout the semester. </p>
+<img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+</div> -->
 
-  <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB5U-TJFky6_S78Sxo3pTNE-x7zPs1mhMc",
-    authDomain: "esp32-led-cfbe7.firebaseapp.com",
-    databaseURL: "https://esp32-led-cfbe7-default-rtdb.firebaseio.com",
-    projectId: "esp32-led-cfbe7",
-    storageBucket: "esp32-led-cfbe7.appspot.com",
-    messagingSenderId: "476281799375",
-    appId: "1:476281799375:web:457fc4792f1ccbe4432dba"
-  };
+<!-- Second Container -->
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>Week 08: Wireless Communications</b></p>
+ <!--  <a href="#" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </a> -->
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>The Struggle Bus</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>This week we learned about ESP-NOW communication for microcontrollers such as the ESP32CAM and the Adafruit Huzzah (Feather). For whatever reason (perhaps my almost 33 year-old brain reaching its limit) I really struggled to understand how this communication framework operated, and how to manipulate the code. This was compounded by my difficulties in setting up these boards, as well as by the very limited time I had this week to dedicate to learning all of this new material.</p>
+    <p>My goal for the week was to learn to do something with the ESP32CAM that involved its built-in SD card capabilities, while also fulfilling the assignment prompt to use wireless or wired communications between two microcontrollers. I wanted to experiment with the SD card because I plan to use that in my final project.</p>
+  </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>ESP32CAM</b></p>
+    </div>
+    <div class="col-sm-9"> 
+      <p>I believe that someone evil designed the ESP32CAM because the way to make it work is just bonkers. Or as one of our classmates said in lab on Sunday - "whack." Yes. This is whack. Shout out to Erik Schreiner for pointing out the strange wiring and unwiring process required to get this microcontroller to take code and then run said code.</p>
+      <p><a href="https://randomnerdtutorials.com/program-upload-code-esp32-cam/">This Random Nerd Tutorial for setting up the ESP32CAM</a> details this process, but somehow I missed the important note that the IO0 and GND pins on the microcontroller must be wired together for for the microcontroller to receive code. Then to run the code, you must detach these pins from one another and press the reset button. Why? Why? Why?</p>
+      <p>Since I was also trying to minimize user error, I wanted a very simple code to ensure I could properly upload to the ESP32CAM. This code for operating the built-in LED on the ESP32CAM is buried in the <a href="https://randomnerdtutorials.com/esp32-cam-ai-thinker-pinout/">Random Nerd Tutorial pinout page</a>, but it served me well in getting the microcontroller to do something very basic.</p>
+        <p><pre><code class="language-arduino">
+          void setup() {
+          pinMode(33, OUTPUT);
+          }
+
+          void loop() {
+          digitalWrite(33, LOW);
+          }
+        </code></pre></p>
+
+        <p>Next I wanted to figure out how to take a picture with the ESP32CAM and save that picture to the SD card. Again Random Nerd Tutorials guided me with <a href="https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card/">this tutorial on doing exactly that</a>. First I had to reformat my microSD card. Technically, the ESP32CAM is programmed to run with a 4gb microSD. RNT used a 16gb microSD with no issues, but mine was 32gb. It turned out this wasn't an issue. The tutorial provides code that allows you to take a photo using the reset button on the microcontroller. This meant that all of the code for taking the picture and saving it sat in the setup function. While this works for taking a picture and saving it to an SD card, it make it very difficult for me later on to adjust this code to involve an if() function. Also, even though the cam has a built-in LED for flashing, you need really good lighting to get a decent photo.</p>
+        <div class = "row">
+          <div class = "col-sm-6">
+            <p><pre><code class="language-arduino">
+          // Take Picture with Camera
+          fb = esp_camera_fb_get();  
+            if(!fb) {
+            Serial.println("Camera capture failed");
+            return;
+            }
+          
+        </code></pre></p>
+        <p>This innocent looking code snippet is just part of the 152 lines of code required for taking a picture and saving it to an SD card.</p>
+          </div>
+          <div class="col-sm-6">
+          <img src="picture2.jpg" class="img-responsive margin" style="width:100%" alt="a treble clef">
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>The Huzzah</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>Unfortunately, I also struggled with setting up the Huzzah microcontroller. This was the result of using the incorrect baud rate in the Serial Monitor (note: it needs to match the setting in the code) but this alone didn't solve my issues. For whatever reason, when trying to upload the SimpleWifiServer example, my serial monitor would read a series of backward question marks, even after fixing the baud rate. After much trial and continued error, I eventually rebooted my computer, and this (insultingly) solve the issue.</p>
+    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/nn2FB1P_Mn8?start=26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    <p>After getting the SimpleWifiServer example to work, I decided to work through the tutorial to get my two microcontrollers to communicate, before getting complicated with buttons and photos. I followed the <a href="https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/">Random Nerd Tutorial for ESPNOW one-way communication</a> and was able to get both micrcontrollers communicating, my Huzzah was the sender and my ESP32CAM was the receiver. I did not however, really understand the example data structure that was provided by RNT and this would later be the cause of much much more strife. I also only have one available USB port that I can use for uploaded code to my microcontrollers, thus the extra time it took to switch between the two when uploading (and the many times I had to quite and reboot Arduino IDE to get it to play nice) meant that everything was taking wayyyy longer than I had planned.</p>
+
+</div>
+
+</div>
+
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>A tale of two microcontrollers</b></p>
   
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    </div>
+  <div class="col-sm-9">
+    <p>As a reminder, my goal was to press a button on the Huzzah and cause the ESP32CAM to take a photo. I started with the Huzzah and set it up with a button and an LED (to confirm that something was happening, as I can only have one microcontroller feeding the Serial Monitor at once). I adjusted the code from the RNT one-way communication tutorial with an if() function that involved the press of a button. Eventually, I used a pin with an internal pullup resistor, though figuring out which pins could do this AND communicate over ESPNOW was a bit of a battle. With the help fo Victoria and Nathan, however, I figured out that I could use any of the digital pins to do this. My initial approach to combining this code was to wrap the act of sending code into an if() function.</p>
+    <p> I then turned to the ESP32CAM, and this time combined the receiver code from the RNT tutorial with the code for taking a photo and saving to an SD Card. Again, I thought the easiest way to do this would be to wrap all of the many lines of code for taking a photo and saving it into an if() function where the variable was whether or not a message was received.</p>
+    <p>I will spare you the pain that I experienced. The code I wrote was really just nonsense. Needless to say, at first I thought it sort of worked. It seemed at least that the Huzzah was sending when I pressed the button, but the delivery was failing. My button nevertheless was still inconsistent, partially due to faulty wiring and partially due to faulty code. I ended up removing the button entirely, just to try and get the ESP32CAM to take a photo if it received data from the Huzzah, but even this didn't work. Then I tried just turning on the built-in LED on the ESP32CAM through ESPNOW and that also failed.</p>
 
-  // Get a database reference to our blog
-  var ref = firebase.database().ref("/");
+  </div>
+</div>
+</div>
+ 
+ <div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>Victoria and Nathan to the Rescue</b></p>
+  
+    </div>
+  <div class="col-sm-9">
+    <p>Thankfully in lab, Victoria and Nathan saved the day. Along the way of my failure to understand what was going on with the ESPNOW communication, I overlooked that Nathan had shared code with a very simple "myData" packet structure that would solve many of my issues. They walked me through how to modify this code to read a button press and then cause the LED on the esp32CAM to light up (below, ignore the LED on the Huzzah set up). VICTORY.</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p><img src="w8circuitry.jpg" class="img-responsive margin" style="width:100%" alt="circuitry"></p>
+      </div>
+      <div class="col-sm-6">
+        <p><iframe src="https://giphy.com/embed/RdhsNP62Gu5N1hgCTF" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><a href="https://giphy.com/gifs/RdhsNP62Gu5N1hgCTF">via GIPHY</a></p>
+      </div>
+    </div>
+    <p>ESPNOW Sender Code - Huzzah Button Press</p>
+    <p><pre><code class="language-arduino">
+          // ESP-NOW code for sender
+// esp32cam is receiver
+// huzzah is sender
 
-  // make the buttons call the function below 
-  document.getElementById('turn-on').addEventListener('click', turnOn, false);
-  document.getElementById('turn-off').addEventListener('click', turnOff, false);
+#include <esp_now.h>
+#include <WiFi.h>
+// REPLACE WITH YOUR RECEIVER MAC Address
+uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0xC1, 0x1B, 0x40};
+//uint8_t broadcastAddress[] = {0x24, 0x62, 0xAB, 0xB0, 0x35, 0xE4};  currently the sender.
+int myData = 0;
+// callback when data is sent
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  Serial.print("\r\nLast Packet Send Status:\t");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+}
+void setup() {
+  // Init Serial Monitor
+  Serial.begin(115200);
+  //set pin A2 as pullup
+  pinMode(A2, INPUT);
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  // Once ESPNow is successfully Init, we will register for Send CB to
+  // get the status of Trasnmitted packet
+  esp_now_register_send_cb(OnDataSent);
+  // Register peer
+  esp_now_peer_info_t peerInfo;
+  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+  peerInfo.channel = 0;
+  peerInfo.encrypt = false;
+  // Add peer
+  if (esp_now_add_peer(&peerInfo) != ESP_OK){
+    Serial.println("Failed to add peer");
+    return;
+  }
+}
+void loop() {
+  myData = digitalRead(A2);
+  Serial.println(myData);
+  // Send message via ESP-NOW
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
+  if (result == ESP_OK) {
+    Serial.println("Sent with success");
+    Serial.println(myData);
+  }
+  else {
+    Serial.println("Error sending the data");
+  }
+  delay(1000);
+}alWrite(33, LOW);
+          }
+        </code></pre></p>
+    <p>ESPNOW Receiver Code - ESP32CAM LED On</p>
+    <p><pre><code class="language-arduino">
+      // ESP-NOW code for receiving side
+// receiver is esp32CAM
+// sender is Huzzah
+// based on code from Nathan Melenbrink for potentiometer to servo and adapted for button press to led.
 
-  function turnOn(){
-    console.log("turning on");
-    ref.update({
-      "LED_STATUS": "ON"
-    });
+#include <esp_now.h>
+#include <WiFi.h>
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
+int myData = 0;
+// const int ServoPin = 2;
+// setting PWM properties
+// const int ServoChannel = 0;
+// const int resolution = 12;   //use 12 bits of resolution on both ADC and PWM.  Why not.
+// callback function that will be executed when data is received
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  memcpy(&myData, incomingData, sizeof(myData));
+//  Serial.print("Bytes received: ");
+//  Serial.println(len);
+//  Serial.print("byte: ");
+//  Serial.println(myData);
+}
+void setup() {
+  WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // prevent brownouts by silencing them
+  // Initialize Serial Monitor
+  Serial.begin(115200);
+  //set built-in LED as output
+  pinMode(33, OUTPUT);
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  // Once ESPNow is successfully Initialized, we will register for recv CB to
+  // get recv packet info
+  esp_now_register_recv_cb(OnDataRecv);
+  // configure PWM functionalitites
+  // ledcSetup(ServoChannel, 50, 12); // 50 hz PWM, 12-bit resolution
+  // attach the channel to the GPIO to be controlled
+  // ledcAttachPin(ServoPin, ServoChannel);
+}
+void loop() {
+  // ledcWrite(0, 4095 - myData);    // this should be replaced with a map() to get a better range
+  if (myData == 1) {
+    digitalWrite(33, LOW);
+    Serial.print("data received!");
+    Serial.println(myData);
+  }
+  else {
+    digitalWrite(33, HIGH);
   }
 
-  function turnOff(){
-    console.log("turning off");
-    ref.update({
-      "LED_STATUS": "OFF"
-    });
-  } 
-    </script>
+  delay(100);
+}
+</code></pre></p>
+ 
+    
+ 
+    </div>
+  </div>
+</div>
+    
+ 
+    </div>
+  </div>
+</div>
 
 </body>
+    
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+</footer>
+
+</body>
+</html>
