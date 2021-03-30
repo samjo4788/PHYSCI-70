@@ -7,9 +7,9 @@
 </head>
 
 <body>
-  <button id="twitch" name="Twitch">Twitch </button>
-  <button id="swing" name="Swing">Swing </button>
-  <button id="off" name="Off">Turn Off </button>
+  <button id="turn-twitch" name="Twitch">Twitch </button>
+  <button id="turn-swing" name="Swing">Swing </button>
+  <button id="turn-off" name="Off">Turn Off </button>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
@@ -36,25 +36,25 @@
   var ref = firebase.database().ref("/");
 
   // make the buttons call the function below 
-  document.getElementById('twitch').addEventListener('click', Twitch, false);
-  document.getElementById('tswing').addEventListener('click', Swing, false);
-  document.getElementById('off').addEventListener('click', Off, false);
+  document.getElementById('turn-twitch').addEventListener('click', turnTwitch, false);
+  document.getElementById('turn-swing').addEventListener('click', turnSwing, false);
+  document.getElementById('turn-off').addEventListener('click', turnOff, false);
 
-  function Twitch(){
+  function turnTwitch(){
     console.log("turning on twitch");
     ref.update({
       "SERVO_STATUS": "TWITCH"
     });
   }
 
-  function Swing(){
+  function turnSwing(){
     console.log("turning on swing");
     ref.update({
       "SERVO_STATUS": "SWING"
     });
   } 
 
-    function Off(){
+    function turnOff(){
     console.log("turning off");
     ref.update({
       "SERVO_STATUS": "OFF"
