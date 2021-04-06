@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SamJo/physci70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  script>hljs.initHighlightingOnLoad();</script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #404040; /* Dark Gray */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #686868; /* Slate Gray */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #a0a0a0; /* Gray */
+    color: #ffffff;
+  }
+  .bg-5 { 
+    background-color: #bebebe; /* Light Gray */
+    color: #ffffff;
+  }
+  .bg-6 { 
+    background-color: #dcdcdc; /* Lightest Gray */
+    color: #555555;
+  }
+  .bg-7 { 
+    background-color: #f8f8f8; /* White Gray */
+    color: #555555;
+  }
+   .bg-8 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-9 { 
+    background-color: #ffdd33; /* Yellow */
+    color: #555555;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .container-fluid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">SamJo/ps70</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/About/indexA.html">ABOUT</a></li>
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">FINAL PROJECT</a></li>
+        <!--         <li><a href="#">WHERE</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<!-- <div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Physci 70</h3>
+  <p>Welcome to my site for ps70 Spring 2021, where I will document my work throughout the semester. </p>
+<img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+</div> -->
+
+<!-- Second Container -->
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>Week 10: Machine Building and End Effectors</b></p>
+ <!--  <a href="#" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </a> -->
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>Page Turning</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>For this week's task, I thought it would be neat to take Nathan's suggestion and play around with hall sensors for calibrating the stepper motor. I decided to make a crude page turner, and the hall sensor would tell the stepper motor when to stop turning the page, based on its position relative to the book. Or something like that. I also had a grander version of this idea, where the book thickness could be accounted for. In this imaginary version, a second stepper motor would raise the back of the book up enough for the page turning piece to touch the page, and then it would lower the book as the page turning piece returned to its starting position (otherwise the page turner will just keep turning pages back and forth rather than in one direction). The second stepper motor would also use a hall sensor. Unfortunately, I was 2 bearings short of being able to construct the second linear stage in the kit (and figured this out midway through assembly) and did not have the mental or emotional energy to try and construct a different stage. So I decided to see if it would work with just two bearings controlling the tire. I'd use the fully assembled stage (with all of the bearings) to make the page-turning stepper assembly move vertically.</p>
+    <p>I started with the set up that we put together in lab, with one stepper motor attached to a linear stage. I imagined that the page turner piece (the end effector) would ideally be a flexible wand with a rubber tip, kind of like a paintbrush. Realistically, I didn't have something like this in my house, so I instead decided to use the lego wheel and tire in the kit to be my end effector. I attached this to a wooden dowel (aka a disposable takeout chopstick) and it very nicely fit through the pre-cut holes in the linear stage.</p>
+    <p>I also needed to mount the motor to something stable. This took a little scavenging, but I was able to find a piece of scrap wood in the basement of my apartment building. Attaching the brackets to the motors was a bit of a PITA, but I got the attached eventually. I also figured out a crude way to attach the bracket of my horizontally moving stepper to the stage of the vertical stepper. At this point, I also decided that messing with the hall sensors would probably not happen, because I spent a lot of time just trying to assemble the thing.</p>
+    <div class="row">
+  <div class="col-sm-6">
+   <img src="pageturner.jpg" class="img-responsive margin" style="width:100%" alt="contraption">
+    </div>
+  <div class="col-sm-6">
+    <img src="circuitry.jpg" class="img-responsive margin" style="width:100%" alt="contraption">
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+      <img src="bracketnut.jpg" class="img-responsive margin" style="width:100%" alt="contraption">
+  </div>
+    <div class="col-sm-6">
+      <img src="2bearingstage.jpg" class="img-responsive margin" style="width:100%" alt="contraption">
+  </div>
+</div>
+
+  </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>The Code</b></p>
+    </div>
+    <div class="col-sm-9"> 
+      <p>Now that the physical fabrication was mostly done, I turned to the code. I used the code we work with in class and modified it for two steppers using some code from the MultipleStepper Example in the AccelStepper library. I wanted my machine to do the following: (1) stepper 1 lower (2) stepper 2 will move from right to left and "turn the page" (3) stepper 1 will raise up and (3) stepper 2 will move from left to right back to its original position. </p>
+          <p><pre><code class="language-arduino">
+            #include <AccelStepper.h>
+
+const int stepPin1 = 13;  // define pins for vertical stepper
+const int dirPin1 = 12;   
+
+const int stepPin2 = 9; // define pins for horizontal stepper
+const int dirPin2 = 8;
+
+// Define a stepper and the pins it will use
+AccelStepper stepper1(1, stepPin1, dirPin1); // initialise accelstepper for a two wire board
+AccelStepper stepper2(2, stepPin2, dirPin2);
+
+void setup()
+{  
+}
+
+void loop()
+{
+ if (stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0) {
+    delay(1000);
+    stepper2.setMaxSpeed(500.0);
+    stepper2.setAcceleration(500.0);
+    stepper2.moveTo(-500);
+    delay(1000);
+    stepper1.setMaxSpeed(500.0);
+    stepper1.setAcceleration(500.0);
+    stepper1.moveTo(500);
+
+
+
+}
+    stepper1.run();
+    stepper2.run();
+
+    if (stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0) {
+    delay(1000);
+
+    stepper2.setMaxSpeed(500.0);
+    stepper2.setAcceleration(500.0);
+    stepper2.moveTo(500);
+    delay(1000);
+    stepper1.setMaxSpeed(-500.0);
+    stepper1.setAcceleration(500.0);
+    stepper1.moveTo(-500);
+
+
+}
+    stepper1.run();
+    stepper2.run();
+  
+}
+      </code></pre></p>
+      <p>Unfortunately, the weight of the stepper motor on the vertical axis was seriously affecting the ability for me to adjust these values and play around. It seemed that the more I tried to run it, the more it started to fall apart. Literally, screws and nuts came loose. So I never got to the stage where it could actually turn a page. Alas.</p>
+      <div class="row">
+  <div class="col-sm-6">
+   <img src="fullassembly.jpg" class="img-responsive margin" style="width:100%" alt="contraption">
+    </div>
+  <div class="col-sm-6">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5k7_zQBdR-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b></b></p>
+    </div>
+  <div class="col-sm-9">
+    <p></p>
+    <p><pre><code class="language-arduino">
+      </code></pre></p>
+
+      <p></p>
+
+
+</div>
+</div>
+</div>
+
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b></b></p>
+  
+    </div>
+  <div class="col-sm-9">
+    <p></p>
+
+  </div>
+</div>
+</div>
+ 
+ <div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b></b></p>
+  
+    </div>
+  <div class="col-sm-9">
+    <p></p>
+ 
+ 
+    </div>
+  </div>
+</div>
+    
+ 
+    </div>
+  </div>
+</div>
+
+</body>
+    
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+</footer>
+
+</body>
+</html>
