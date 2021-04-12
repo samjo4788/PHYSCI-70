@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SamJo/physci70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #404040; /* Dark Gray */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #686868; /* Slate Gray */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #a0a0a0; /* Gray */
+    color: #ffffff;
+  }
+  .bg-5 { 
+    background-color: #bebebe; /* Light Gray */
+    color: #ffffff;
+  }
+  .bg-6 { 
+    background-color: #dcdcdc; /* Lightest Gray */
+    color: #555555;
+  }
+  .bg-7 { 
+    background-color: #f8f8f8; /* White Gray */
+    color: #555555;
+  }
+   .bg-8 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-9 { 
+    background-color: #ffdd33; /* Yellow */
+    color: #555555;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .container-fluid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">SamJo/ps70</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/About/indexA.html">ABOUT</a></li>
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">FINAL PROJECT</a></li>
+        <!--         <li><a href="#">WHERE</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- TITLE Container -->
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>Week 11: Computer Programming</b></p>
+ <!--  <a href="#" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </a> -->
+</div>
+
+<!-- FIrst Body Container -->
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>VISUALIZATION GOALS</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>I am excited about this week because it directly relates to what I want to do with my final project. My hope is to use visualizations of movement data as an analytical tool and as a descriptive tool. Part of the overall project will be exploring the possibilities of visualizing the data and determining what visualizations allow for what analyses or ease of representation.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECOND Body Container -->
+
+<div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>p5 with Serial Bridge</b></p>
+    <p><img src="p5pot_sp.jpg" class="img-responsive margin" style="width:100%" alt="potentiometer and breadboard set up for p5 serial bridge communication"></p>
+    </div>
+  <div class="col-sm-9">
+    <p>At first, since I was still waiting for my fancy schmancy all-in-one microcontroller and motion sensor, I tried connecting one of my other microcontrollers to p5. I followed this tutorial on <a href=“https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-serial-input-to-the-p5-js-ide/#Program_P5js_to_List_the_Available_Serial_Ports”>setting up p5 with a serial bridge</a> but for whatever reason struggled to get the sketch to load in my html code. Victoria helpfully derived <a href=“https://editor.p5js.org/ascenshen/sketches/ZxhqIYsVL”>this code for the sketch</a> from the tutorial and I decided to use the p5 web editor to see if that made a difference. I realized that the issue was with the p5.serialport.js file. I had been using a link to the serial port library, but when I put the library right into my project. It worked!</p>
+    <p><iframe src="https://editor.p5js.org/samjo4788/embed/vngoQCxZF"></iframe></p>
+    <p>I then switched back to using my own repo and web page (not the p5 web editor), but that did not work. I just got a sad html page that said “Loading…” Lucky for me, the Arduino Nano 33 Sense Boards that I ordered arrived over the weekend. So I decided to try and set up p5 communication with one of those boards over BLE.</p>
+  </div>
+</div>
+</div>
+
+<!-- THIRD Body Container -->
+
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>p5 with BLE</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>Here is my documentation for <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/Nano33Sense/index.html">setting up the Arduino Nano 33 Sense</a>. The Arduino Nano 33 Sense Board has BLE and Bluetooth capabilities, and since I am making a wearable, I used this week’s assignment to connect the Nano 33 to p5 over BLE. I followed <a href="https://itpnyu.github.io/p5ble-website/blog/2019/10/19/blog-post">this tutorial from ITP</a>.
+
+    </p>
+  </div>
+</div>
+</div>
+
+<!-- FOURTH Body Container -->
+
+<div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>FURTHER EXPLORATIONS</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>Be able to display various axes in stacked lines and isolate these lines.</p>
+    <P>Have the visualization indicate motifs and gestures (this will require machine learning, I think)</p>
+    <p>Display rhythmic patterns culled from the movement data (so not necessarily sounded rhythm, though not excluding sounded rhythm either). Because the dancing is rhythmic and musical, the gestures can be defined by their position in time relative to one another. This will assist in gesture recognition and motif parsing.</p>
+  </div>
+</div>
+</div>
+
+</body>
+    
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+</footer>
+
+</body>
+</html>

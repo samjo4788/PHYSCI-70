@@ -9,6 +9,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
   body {
     font: 20px Montserrat, sans-serif;
@@ -128,6 +132,7 @@
       <br>
       <iframe width="250" height="140" src="https://www.youtube.com/embed/iANRO3I30nM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <p style="font-size: 12px"><i>Up and Over It</i> performs to 'We no speak no Americano'</p>
+      <p><img src="SensationalGloveCartoon.png" class="img-responsive margin" style="width:100%" alt="This cartooon depicts a drawing of a glove with the tips of each finger and thumb highlighted to indicate where the sensors will be placed. A second cartoon describes how the finger sensors must wrap from the finger pad around the tip of the finger. The cartoon is titled THIS GLOVE IS SENSATIONAL."></p>
 
       <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
     </div>
@@ -138,22 +143,77 @@
       <br>
       <p>What I propose is to create a glove that incorporates various sensors in particular areas of the glove (finger tips, thumb, possibly elsewhere) that will be able to measure movement through space over time, as well as instances where the dancer might be tapping a table (or tapping their thumb). Based on helpful suggestions from Nathan and Victoria, I anticipate experimenting with copper thread to create sensor pads on the thumb and finger tips and experimenting with the Piezo disc (for measuring taps), Hall sensors (for gesture), capacitive sensors, accelerometers and gyroscopes. My hope that some combination of sensors will help me map space/time/contact data. Something that I’m also thinking about is a way to “turn off” certain sensors based on the behavior of the dancer. So if a dancer uses just two fingers on a thumb, then perhaps other features of the glove are not as important, and they could be ignored without needing to change anything on the glove itself. I suppose that would just be a matter of ignoring certain output signals. As you can tell, I know very little and I’m excited to learn what is possible, what works, what doesn’t, and how it might all come together.</p>
       <br>
-      <img src="SensationalGloveCartoon.png" class="img-responsive margin" style="width:100%" alt="This cartooon depicts a drawing of a glove with the tips of each finger and thumb highlighted to indicate where the sensors will be placed. A second cartoon describes how the finger sensors must wrap from the finger pad around the tip of the finger. The cartoon is titled THIS GLOVE IS SENSATIONAL.">
-
-      <!-- <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
     </div>
   </div>
-<!-- <div class="row">
-  <div class="col-sm-3">
-    <p><b>Project Proposal</b></p>
-    <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
-  <!--   </div>
-  <div class="col-sm-9">
-    <p>You can view my project proposal <a href="FinalProject/indexFP.html">here</a>, or by clicking “Final Project” in the upper right hand corner of the navigation bar.</p>
-    <br><br>
-    </div>
-  </div> -->
 </div> 
+
+<div class="container-fluid bg-2">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>MICROCONTROLLERS AND SENSORS</b></p>
+      <p><img src="arduinoNano33Sense.jpg" class="img-responsive margin" style="width:100%" alt="Arduino Nano 33 Sense Board with Pins and Box"></p>
+      </div>
+    <div class="col-sm-9">
+      <p>Nathan helpfully pointed me in the directiion of an all-in-one microcontroller and IMU tha also has machine learning capabiliites, in case that is something I decide I will need: the Arduino Nano 33 Sense. This little board has tons of capabilities, including BLE/Bluetooth. It is too bad that it doesn't have wi-fi, but that is OK. This board let's me avoid unecessary wires or bulky layering of sensors and microcontrollers, which is key for any wearable, especially one that is going to be placed on the hands.</p>
+      <p>Here is my documentation for <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/Nano33Sense/index.html">setting up the Arduino Nano 33 Sense</a>.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>PROTOTYPING THE GLOVE</b></p>
+      </div>
+    <div class="col-sm-9">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-2">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>MACHINE LEARNING</b></p>
+      </div>
+    <div class="col-sm-9">
+      <p>Machine learning tutorials using the Arduino Nano 33 Sense:
+        <br><a href="https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157">Machine Learning with Arduino and Tensorflow</a>
+        <br><a href="https://medium.com/@devdevcharlie/play-street-fighter-with-body-movements-using-arduino-and-tensorflow-js-6b0e4734e118">Arduino and Tensorflow Gesture Recognition</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>VISUALIZING THE DATA</b></p>
+      </div>
+    <div class="col-sm-9">
+      <p>A major aim of this project is to produce data and use visualization methods to (1) assist in analyzing the data and (2) assist in representing the data to others. Hand dancing is somewhat legible to other dancers -- usually a dancer can tell what type of dance someone is marking out with their fingers or hands without any audible musical or verbal cues. But deciphering actual movements is more complicated. For a non-dancer (read: "Irish dancer"), these tiny gestures are confusing and almost completely illegible.</p>
+      <p>In <a href="https://samjo4788.github.io/PHYSCI-70/Week11/index11.html">Week 11</a>, I started preliminary work with visualizing movement data using p5.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-2">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>CIRCUITRY</b></p>
+      </div>
+    <div class="col-sm-9">
+      <p>Eventually, I will need to solder wires to my microcontroller. Luckily, I found our soldering iron in the depths of our unnecessarily large tool box AND there was solder in the bag. Magic.</p>
+      <p>I have soldered once in my life. I was 13 and did a summer program at our local technical high school. We rotated through the different trades that the school offered and one week was electronics. I soldered many little circuits that week, but alas did not remember much from that experience twenty years later. Arduino saved the day for me however with two very helpful guides on soldering:
+        <br><a href="https://learn.adafruit.com/make-it-glow-how-to-solder-neopixels-a-beginners-guide/soldering-to-microcontrollers">Adafruit Beginner's Guide to Soldering Micrcontrollers</a>
+        <br><a href="https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint">Adafruits guide to Excellence in Soldering</a> (I hope that they have a special certificate for this)</p>
+    </div>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">

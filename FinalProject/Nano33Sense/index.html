@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SamJo/physci70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #404040; /* Dark Gray */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #686868; /* Slate Gray */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #a0a0a0; /* Gray */
+    color: #ffffff;
+  }
+  .bg-5 { 
+    background-color: #bebebe; /* Light Gray */
+    color: #ffffff;
+  }
+  .bg-6 { 
+    background-color: #dcdcdc; /* Lightest Gray */
+    color: #555555;
+  }
+  .bg-7 { 
+    background-color: #f8f8f8; /* White Gray */
+    color: #555555;
+  }
+   .bg-8 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-9 { 
+    background-color: #ffdd33; /* Yellow */
+    color: #555555;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .container-fluid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">SamJo/ps70</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/About/indexA.html">ABOUT</a></li>
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">FINAL PROJECT</a></li>
+        <!--         <li><a href="#">WHERE</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<!-- <div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Physci 70</h3>
+  <p>Welcome to my site for ps70 Spring 2021, where I will document my work throughout the semester. </p>
+<img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+</div> -->
+
+<!-- Second Container -->
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>Arduino Nano 33 Sense<b></p>
+ <!--  <a href="#" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </a> -->
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>APRIL 10–11<br>SETTING UP THE BOARD</b></p><br>
+      <p><img src="aprilhaul.jpg" class="img-responsive margin" style="width:100%" alt="Arduino Nnao 33 Sense, coin cell batteries and packs"></p><br>
+      <p><img src="nano33.jpg" class="img-responsive margin" style="width:100%" alt="Arduino Nnao 33 Sense"></p>
+
+
+      <!-- <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+    </div>
+  <div class="col-sm-9"> 
+      <p> It was an exciting weekend as I got both of the <a href=“https://store.arduino.cc/usa/nano-33-ble-sense”>Arduino Nano 33 Sense</a> boards that I ordered as well as the coin cell battery packs and more coin cell batteries than anyone really every could need.</p>
+      <p> I followed the <a href=“https://www.arduino.cc/en/Guide/NANO33BLESense”>Arduino tutorial</a> for setting up the board, which involved installing a new board library and new sketch libraries on my IDE. This board senses many many things including pressure, humidity and sound, but for now I only downloaded libraries for the IMU and for the gesture sensors.</p>
+      <p>I knew that eventually I would need to solder wires to my board. They did provide pins, but since I am making a wearable, I don’t really want a bunch of spiky pins sticking out at me. I was getting mildly stressed out about the prospect of screwing up the soldering and ruining my board, or soldering the wrong pins, or the other million things that could go wrong. But then I remembered that because the board has all its sensors built in AND it has a USB port, that for now I could wait on the soldering and literally just plug the board into my computer to load code, then use that same USB connection to power it when it needs to communicate over BLE. (Special thanks to my ever-patient husband for listening to me talk this out and come to this realization.)</p>
+      <p>The tutorial calls for just using the basic Blink sketch example to ensure the Nano 33 will work. It also included instructions about power. The Nano 33 can only take 3.3V, not 5V. I’ll need to revisit this page when I set up my coin cell battery power situation to be sure that I don’t fry my microcontroller.</p>
+      <p>I also uploaded the sample sketch for the accelerometer. I plan to use this with the p5 to BLE to test out the visualization and get my bearings around the data.</p>
+      <pre><code class="language-arduino">
+        /*
+  Arduino LSM9DS1 - Simple Accelerometer
+
+  This example reads the acceleration values from the LSM9DS1
+  sensor and continuously prints them to the Serial Monitor
+  or Serial Plotter.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense
+
+  created 10 Jul 2019
+  by Riccardo Rizzo
+
+  This example code is in the public domain.
+*/
+
+#include <Arduino_LSM9DS1.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in G's");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
+
+      </code></pre>
+     
+
+      <!-- <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+    </div>
+  </div>
+<!-- <div class="row">
+  <div class="col-sm-3">
+    <p><b>Project Proposal</b></p>
+    <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+  <!--   </div>
+  <div class="col-sm-9">
+    <p>You can view my project proposal <a href="FinalProject/indexFP.html">here</a>, or by clicking “Final Project” in the upper right hand corner of the navigation bar.</p>
+    <br><br>
+    </div>
+  </div> -->
+</div> 
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+</footer>
+
+</body>
+</html>
