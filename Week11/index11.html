@@ -133,7 +133,7 @@
     </div>
   <div class="col-sm-9">
     <p>At first, since I was still waiting for my fancy schmancy all-in-one microcontroller and motion sensor, I tried connecting one of my other microcontrollers to p5. I followed this tutorial on <a href=“https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-serial-input-to-the-p5-js-ide/#Program_P5js_to_List_the_Available_Serial_Ports”>setting up p5 with a serial bridge</a> but for whatever reason struggled to get the sketch to load in my html code. Victoria helpfully derived <a href=“https://editor.p5js.org/ascenshen/sketches/ZxhqIYsVL”>this code for the sketch</a> from the tutorial and I decided to use the p5 web editor to see if that made a difference. I realized that the issue was with the p5.serialport.js file. I had been using a link to the serial port library, but when I put the library right into my project. It worked!</p>
-    <p><iframe src="https://editor.p5js.org/samjo4788/embed/vngoQCxZF"></iframe></p>
+    <p><img src="PotVizjpg" class="img-responsive margin" style="width:100%" alt="graph visualization of the potentiometer reading"></p>
     <p>I then switched back to using my own repo and web page (not the p5 web editor), but that did not work. I just got a sad html page that said “Loading…” Lucky for me, the Arduino Nano 33 Sense Boards that I ordered arrived over the weekend. So I decided to try and set up p5 communication with one of those boards over BLE.</p>
   </div>
 </div>
@@ -147,16 +147,96 @@
     <p><b>p5 with BLE</b></p>
     </div>
   <div class="col-sm-9">
-    <p>Here is my documentation for <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/Nano33Sense/index.html">setting up the Arduino Nano 33 Sense</a>. The Arduino Nano 33 Sense Board has BLE and Bluetooth capabilities, and since I am making a wearable, I used this week’s assignment to connect the Nano 33 to p5 over BLE. I followed <a href="https://itpnyu.github.io/p5ble-website/blog/2019/10/19/blog-post">this tutorial from ITP</a>. The tutorial uses a basic button-LED circuit and sketch. Since I didn't want to solder my pins into the board, I got creative with my circuitry and wired up my button with the two digikey mini-hooks and an alligator clip. By some kind of miracle, the sketch loaded and the circuitry worked! All on the first try. 
-
-    </p>
+    <p>Here is my documentation for <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/Nano33Sense/index.html">setting up the Arduino Nano 33 Sense</a>. The Arduino Nano 33 Sense Board has BLE and Bluetooth capabilities, and since I am making a wearable, I used this week’s assignment to connect the Nano 33 to p5 over BLE. I followed <a href="https://create.arduino.cc/projecthub/jingwen_zhu/getting-started-with-p5-ble-js-using-arduino-nano-33-ble-120ea6">this tutorial from ITP</a>. The tutorial uses a basic button-LED circuit and sketch. Since I didn't want to solder my pins into the board, I got creative with my circuitry and wired up my button with the two digikey mini-hooks and an alligator clip. By some kind of miracle, the sketch loaded and the circuitry worked! All on the first try. </p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p><img src="buttontonano.jpg" class="img-responsive margin" style="width:100%" alt="alligator clips and hook-up wires connect a button to the unsoldered Nano 33"></p>
+      </div>
+      <div class="col-sm-6">
+        <iframe src="https://giphy.com/embed/G3nl3KFB2HUKcOxHFO" width="390" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/G3nl3KFB2HUKcOxHFO">via GIPHY</a></p>
+      </div>
+    </div>
+    <p>I uploaded the sample sketch code to my p5 web editor and was able to get my Nano to pair with the system, but unfortunately, it wasn't producing the expected effects. In the example, pressing the button should change the color of the square drawn in the p5 web editor, and clicking the "toggle" button in the web editor should turn the LED light on the Nano on or off. In fact, when I click the "toggle" button I get the error "The characteristic does not exist." It's really not clear to me what the issue is.</p>
+    <p><a href='./Nano33_ButtonLED.zip' download > Download my p5 sketch files.</a></p>
   </div>
 </div>
 </div>
 
 <!-- FOURTH Body Container -->
-
 <div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>p5 and 3D space</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>I wanted to get to the point where I could manipulate how the data from the microcontroller would be visualized, so I left the BLE communications for now and returned to my serial bridge connection and p5 web editor, but this time using the Nano 33 and its IMU data. I found this ITP tutorial which uses a <a href="https://itp.nyu.edu/physcomp/labs/lab-serial-imu-output-to-p5-js/">serial connection to read IMU data into a p5 visualization</a>. I modified the tutorial for the Nano 33 Sense by calling a different library. To ensure success, I combined the Arduino sample sketches for "SimpleAccelerometer" and "SimpleGyroscope" and used that base sketch to incorporate the Madgwick Library as instructed in the tutorial. I also needed to figure out what the sensor's sampling rate was, but this seemed elusive through googling. It turned out though that this was easy to find with a simple code line in the Arduino IDE:</p>
+    <p><pre><code class="language-arduino">
+        Serial.print("Accelerometer sample rate = ");
+        Serial.print(IMU.accelerationSampleRate());
+        Serial.println(" Hz");
+        Serial.println();
+        Serial.print("Gyroscope sample rate = ");
+        Serial.print(IMU.gyroscopeSampleRate());
+        Serial.println(" Hz");
+        Serial.println();
+      </code></pre></p>
+
+    <p>It's 119 Hz</p>
+    <p><a href='./AccelGyro_p5.ino' download > Download my Arduino code.</a></p>
+    
+    <p>I then moved on to the p5 side. The tutorial was pretty straight forward and I was experiencing success step by step until I got to the stage where the tutorial prompts you to convert the string of IMU values to floating points. For whatever reason, every time I tried to run this version of the code, the console would print that the serial port was connected, but it would not print the floating point values. Then if I would revert to the previous code it would do the same thing. The only way I was able to get the earlier version to run was to close the serial bridge, reload my Arduino code, re-open the serial bridge and then run the sketch in the p5 web editor. I could not find anything about this issue anywhere on the interwebs. (NOTE: yes, I did add the global variables for heading, pitch and roll).</p>
+    <div class="row">
+      <div class="col-sm-6">
+    <p><pre><code class="language-arduino">
+      //THIS CODE WORKS
+      function serialEvent() {
+      // read from port until new line:
+      let message = serial.readStringUntil('\n');
+      if (message != null) {
+      console.log(message);
+      // send a byte to the microcontroller to get new data:
+      serial.write('x');
+      }
+      }
+    </code></pre></p>
+  </div>
+  <div class="col-sm-6">
+      <p><pre><code class="language-arduino">
+      //THIS CODE DOESN'T WORK
+      function serialEvent() {
+      // read from port until new line:
+      let message = serial.readStringUntil('\n');
+      if (message != null) {
+      let list = split(trim(message), ',');
+      if (list.length >= 3) {
+         // conver list items to floats:
+         heading = float(list[0]);
+         pitch = float(list[1]);
+         roll = float(list[2]);
+         console.log(heading + ',' + pitch + ',' + roll);
+         // send a byte to the microcontroller to get new data:
+         serial.write('x');
+          }
+        }
+      }
+    </code></pre></p>
+    <p>I thought I could just abandon the floating point parsing and have that operation work elsewhere in the code, but was struggling to find examples that I could build off of that used an array of input data. After a couple of meltdowns, my husband talked me off the ledge and I consulted with one of my best friends, Mike (and engineer), who took a look at the p5 and Arduino code with me. We realized that in fact, the communication over the serial port was breaking down regardless of the floating point parsing, it was just harder to see. We figured out that the issue was that as soon as byte goes missing, the communication bridge breakds down and cannot recover, but because the port is still open, I have to go through the painstaking process of closing the bridge, re-loading the arduino code, and re-opening the bridge and running the p5 sketch (this is also why resetting the microcontroller doesn't work).</p>
+    <p>Mike and I brainstormed a way to eliminate the "handshake" and instead have the micrcontroller send a continous stream of data to p5. In this scenario, the p5 sketch would need to parse the data array based on the last three items in the list. The code would be something like this:</p>
+    <p><pre><code class="language-arduino">
+      heading = float(list[list.length - 3])
+      pitch = float(list[list.length - 2])
+      roll = float(list[list.length - 1])
+      </code></pre></p>
+    <p>This, I decided would be better left for another time. I needed to step away and take a break and do a little more research in to available libraries for dealing with this data. Needless to say I was very frustrated that what started as a promising week ended up not producing any of my stated goals.</p>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+
+<!-- FIFTH Body Container -->
+
+<div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
     <p><b>FURTHER EXPLORATIONS</b></p>
