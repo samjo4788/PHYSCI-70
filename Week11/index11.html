@@ -133,7 +133,7 @@
     </div>
   <div class="col-sm-9">
     <p>At first, since I was still waiting for my fancy schmancy all-in-one microcontroller and motion sensor, I tried connecting one of my other microcontrollers to p5. I followed this tutorial on <a href=“https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-serial-input-to-the-p5-js-ide/#Program_P5js_to_List_the_Available_Serial_Ports”>setting up p5 with a serial bridge</a> but for whatever reason struggled to get the sketch to load in my html code. Victoria helpfully derived <a href=“https://editor.p5js.org/ascenshen/sketches/ZxhqIYsVL”>this code for the sketch</a> from the tutorial and I decided to use the p5 web editor to see if that made a difference. I realized that the issue was with the p5.serialport.js file. I had been using a link to the serial port library, but when I put the library right into my project. It worked!</p>
-    <p><img src="PotVizjpg" class="img-responsive margin" style="width:100%" alt="graph visualization of the potentiometer reading"></p>
+    <p><img src="PotViz.png" class="img-responsive margin" style="width:100%" alt="graph visualization of the potentiometer reading"></p>
     <p>I then switched back to using my own repo and web page (not the p5 web editor), but that did not work. I just got a sad html page that said “Loading…” Lucky for me, the Arduino Nano 33 Sense Boards that I ordered arrived over the weekend. So I decided to try and set up p5 communication with one of those boards over BLE.</p>
   </div>
 </div>
@@ -220,6 +220,8 @@
         }
       }
     </code></pre></p>
+  </div>
+</div>
     <p>I thought I could just abandon the floating point parsing and have that operation work elsewhere in the code, but was struggling to find examples that I could build off of that used an array of input data. After a couple of meltdowns, my husband talked me off the ledge and I consulted with one of my best friends, Mike (and engineer), who took a look at the p5 and Arduino code with me. We realized that in fact, the communication over the serial port was breaking down regardless of the floating point parsing, it was just harder to see. We figured out that the issue was that as soon as byte goes missing, the communication bridge breakds down and cannot recover, but because the port is still open, I have to go through the painstaking process of closing the bridge, re-loading the arduino code, and re-opening the bridge and running the p5 sketch (this is also why resetting the microcontroller doesn't work).</p>
     <p>Mike and I brainstormed a way to eliminate the "handshake" and instead have the micrcontroller send a continous stream of data to p5. In this scenario, the p5 sketch would need to parse the data array based on the last three items in the list. The code would be something like this:</p>
     <p><pre><code class="language-arduino">
