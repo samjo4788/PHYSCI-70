@@ -241,6 +241,23 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
+    <p><b>BLE DEVELOPMENTS</b></p>
+    </div>
+  <div class="col-sm-9">
+    <p>I took a night off and after dreams (nightmares?) about micrcontrollers, I decided to revisit the BLE tutorial. I thought perhaps the BLE communication was breaking down because I was using my serial port on my Mac as the power supply. I discovered, however, that whenever I unplugged my micrcontroller from my Mac and plugged it into an external power supply, that it stopped working. The button no longer worked and the the BLE connection wouldn't show up on my tester app (LightBlue or BLE Scanner). Many google searches later I came across <a href="https://forum.arduino.cc/t/arduino-nano-33-ble-not-working-if-not-connected-to-serial-monitor/692723/2">this forum post</a>, which described a very similar problem. The answer: the code contains a while(!Serial) function and I need to comment that out, otherwise the code will only work if it is connected to a serial port. What the actual EFF. IT WORKS.</p>
+    <p>Well, the code runs when it is connected to an external power source. Progress. The connection to the p5 Web Editor is still not working. Nothing happens when I press the button on the breadboard. This is the error I got before and continue to get now when I click the toggle button:</p>
+    <p><img src="p5_BLE_Fail.png" class="img-responsive margin" style="width:100%" alt="the p5 sketch to toggle an LED over BLE doesn't work."></p>
+  </div>
+</div>
+</div>
+
+
+
+<!-- SIXTH Body Container -->
+
+<div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-3">
     <p><b>FURTHER EXPLORATIONS</b></p>
     </div>
   <div class="col-sm-9">
