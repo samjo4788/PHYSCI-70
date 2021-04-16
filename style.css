@@ -68,13 +68,16 @@ body {
   .btn-sq-lg-1 {
   width: 150px !important;
   height: 150px !important;
-  line-height: 75px;
+  border: 2px solid #555555;
+  line-height: 20px;
+  text-align: center;
   box-sizing: border-box;
   background-color: #ffdd33;
   color: #555555;
   }
   .btn-sq-lg-1:hover {
-    background-color: #686868;
+    background-color: #555555;
+    color: #ffdd33;
   }
   .btn-sq-lg-2 {
   width: 150px !important;
@@ -90,13 +93,15 @@ body {
   .btn-sq-lg-3 {
   width: 150px !important;
   height: 150px !important;
-  line-height: 75px;
+  line-height: 20px;
+  text-align: center;
   box-sizing: border-box;
   background-color: #2f2f2f;
   color: #ffffff;
   }
   .btn-sq-lg-3:hover {
-    background-color: #686868;
+    background-color: #ffdd33;
+    color: #2f2f2f;
   }
 
   .btn-sq {
@@ -116,6 +121,41 @@ body {
   height: 25px !important;
   padding:2px;
   }
+
+  .button {
+  	border: none;
+  	color: white;
+  	padding: 150px 150px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 4px;
+  	transition-duration: 0.4s;
+  	cursor: pointer;
+  }
+  .button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  word-break: keep-all;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
 
   h3 {font-size: 16px;
 	color: #ffffff;
