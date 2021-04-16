@@ -26,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="../index.html">SamJo/ps70</a>
+      <a class="navbar-brand" href="../index.html">HOME</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -39,14 +39,8 @@
   </div>
 </nav>
 
-<!-- First Container -->
-<!-- <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">Physci 70</h3>
-  <p>Welcome to my site for ps70 Spring 2021, where I will document my work throughout the semester. </p>
-<img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-</div> -->
 
-<!-- Second Container -->
+<!-- First Container -->
 <div class="container-fluid2 bg-9 text-center">
   <p><b>Week 09: Wireless Communications Part 2</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
@@ -54,7 +48,7 @@
   </a> -->
 </div>
 
-<!-- Third Container (Grid) -->
+<!-- second Container -->
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
@@ -69,8 +63,7 @@
 </div>
 
 
-<div class="container-fluid bg-7">    
-<!--   <h3 class="margin">Weekly Work</h3><br> -->
+<div class="container-fluid bg-2">    
   <div class="row">
     <div class="col-sm-3">
       <p><b>ServoCat</b></p>
@@ -92,45 +85,45 @@
     <p>My basic code to turn the servo on and off worked, so I attached the servo to a cat toy and experimented with different movement directions. To maximize the motion of the string toy, I attached a straw to the servo motor. For some reason, the twitching was quite irregular, and I am guessing this has to do with putting strain on the motor? In terms of cat toys, however, this is a plus. The code below is what I ended up with:</p>
     <p><pre><code class="language-arduino">
 
-      void loop() {
+              void loop() {
 
-  Firebase.get(firebaseData, "/SERVO_STATUS");          
-  // get led status input from firebase
-  fireString = firebaseData.stringData();                        // change to e.g. intData() or boolData()
-  Serial.println(fireString);
-  
-  if (fireString == "TWITCH") {                    // compare the input of servo status received from firebase
-    Serial.println("ServoCat Twitch");
-    myservo.write(0);
-    delay(15);
-    myservo.write(45);
-    delay(15);
+          Firebase.get(firebaseData, "/SERVO_STATUS");          
+          // get led status input from firebase
+          fireString = firebaseData.stringData();                        // change to e.g. intData() or boolData()
+          Serial.println(fireString);
+          
+          if (fireString == "TWITCH") {                    // compare the input of servo status received from firebase
+            Serial.println("ServoCat Twitch");
+            myservo.write(0);
+            delay(15);
+            myservo.write(45);
+            delay(15);
 
-  }
+          }
 
-  else if (fireString == "SWING") {
-    Serial.println("ServoCat Swing");
-     for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
-    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
-  }
+          else if (fireString == "SWING") {
+            Serial.println("ServoCat Swing");
+             for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+            // in steps of 1 degree
+            myservo.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+          }
+            for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+            myservo.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+          }
+          }
 
-  else if (fireString == "OFF") {              // compare the input of servo status received from firebase
-    Serial.println("ServoCat OFF");
- 
-  }
+          else if (fireString == "OFF") {              // compare the input of servo status received from firebase
+            Serial.println("ServoCat OFF");
+         
+          }
 
 
-  else {
-    Serial.println("Please send ON/OFF");
-  }
-}
+          else {
+            Serial.println("Please send ON/OFF");
+          }
+        }
 
       </code></pre></p>
 
@@ -143,7 +136,7 @@
           <iframe width="300" height="315" src="https://www.youtube.com/embed/0YubpKTp5Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-         <p><iframe width="560" height="315" src="https://www.youtube.com/embed/I0NqbPvru-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+      <p><iframe width="560" height="315" src="https://www.youtube.com/embed/I0NqbPvru-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
       <p> The next step is to make this a web-app, so all y'all can play with the cat. I followed the tutorial on our class Firebase page and modified the web-app button and call code. At first the web-app wasn't communicating with the Firebase, but some troubleshooting help from Nathan and Victoria solved the issue. I had left out a key line of code that referenced the firebase library AND I needed to make sure that the library versions matched. I'll keep this thing plugged in and attached to the kitchen table for as long as I can (aka until the other members of my household revolt). Enjoy!</p>
 
@@ -154,37 +147,7 @@
 </div>
 </div>
 
-<div class="container-fluid bg-7">
-<div class="row">
-  <div class="col-sm-3">
-    <p><b></b></p>
-  
-    </div>
-  <div class="col-sm-9">
-    <p></p>
 
-  </div>
-</div>
-</div>
- 
- <div class="container-fluid bg-7">
-<div class="row">
-  <div class="col-sm-3">
-    <p><b></b></p>
-  
-    </div>
-  <div class="col-sm-9">
-    <p></p>
- 
- 
-    </div>
-  </div>
-</div>
-    
- 
-    </div>
-  </div>
-</div>
 
 </body>
     
