@@ -103,14 +103,68 @@
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
-      <p><b>PROTOTYPING THE GLOVE</b></p>
+      <p><b>RESEARCH & INSPO</b></p>
       </div>
     <div class="col-sm-9">
+      <p>I have been drawing inspiration from a variety of sources for prototyping my "sensational dance glove." This includes <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0179766">a glove protyped to convert the the gestures of the American Manual Alphabet used in American Sign Language(ASL) to text</a> (uses piezoresistant strain sensors); a wearable sensor glove for <a href="https://www.ilyavidrin.com/technology">quantifying dance partnering</a> (uses a combination of capacitive sensing, piezoresistant sensors, and IMUs); these <a href="https://www.instructables.com/Etextile-VR-Gloves-for-Vive-Tracker/">VR gloves designed for use with a Vive Tracker</a> (uses conductive fabric to create circuits); <a href="https://www.instructables.com/Somatic-Data-Glove-for-the-Real-World/">The Somatic, a data glove for controlling keyboard and mouse movements</a>(uses Hall sensors and an IMU); and <a href="https://www.youtube.com/watch?v=ci-yB6EgVW4">Imogen Heap's Mi.Mu gloves</a> (uses an IMU and piezoresistant strain sensors). Based on this research, I intend to pursue the following trajectories:<br>
+    (1) Measuring whole hand orientation/positioning using the Arduino Nano 33 Sense built-in IMU and/or Gesture sensor (APDS-9960).
+    (2) Measure positions of two hands relative to one another (as in, which hand is in front and which is in back) using the Arduino Nano 33 Sense built-in Gesture sensor (APDS-9960).<br>
+    (3) Measure finger positions of index and middle fingers using either hall sensors or gyroscopes. Using hall sensors and gyroscopes would capture finger information whether a person was "dancing" on their thumb or on a table. An alternative approach could be to use finely placed capacitive sensing pads on the thumb, where the index finger hits one and the middle finger hits the other. This would essentially provide rhythmic data and not necessarily fine gestures of the fingers.</p>
+
     </div>
   </div>
 </div>
 
+
 <div class="container-fluid bg-2">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>PROTOTYPING THE GLOVE</b></p>
+      <p><img src="fullgloveon.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+      <p><img src="glovepalm.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+      <p><img src="glovewbattery.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+      </div>
+    <div class="col-sm-9">
+      <p>I decided that I would sew my own prototype. I am prioritizing (1) and (2) of the list above, and if I can figure out a way to make (3) work for my needs, then I will incorporate a two-fingered (or three fingered if I decide to use the thumb) attachment to my prototype. Item (3) is more complicated than (1) and (2) because of how fine and complex the tiny movements of the fingers are when used for dance marking. I anticipate that for the fingers I would use a combination of strain sensors and capacitive sensing, connected to the microcontroller via <a href="https://learn.sparkfun.com/tutorials/sewing-with-conductive-thread">conductive thread</a>.</p>
+      <p>I wanted to design a prototype that would allow me to move the microcontroller as I figured out what the best position would be for comfort and for data acquisition. Unlike many of the gloves I found during my research, my microcontroller would be placed on the back of the hand, rather than on the wrist. This is because my microcontroller and IMU are all-in-one, and I need to capture hand position data, and this position is often different from wrist position. Thus, I attached the microcontroller to the glove using velcro. Because of this, I designed a glove that would be comprised mostly of woven cotton, using stretchy synthetic fabric for the sides. Stretchy synthetics can be tricky to sew with, and so I wanted to avoid any mishaps with sewing velcro. I also wanted to be sure that my microcontroller would have enough support. I used velcro as the closure of the glove and to attach the coin cell battery pack. Another benefit to using a velcro attachment for the microcontroller and battery pack is that it means I can postpone my soldering until I am sure of the electronics and circuitry set up that I need.</p>
+      <div class="row">
+        <div class="col-sm-9">
+          <p>I didn't use a pattern for my prototype - I experimented by piecing scraps together and placing them on and against my hand. Unfortunately, I was having some difficulty with lighting and so don't have great documentation of the actual process of piecing together the glove. I will have to make a second one for the left hand, in which case I will piece out a pattern to mimic my right-hand experimentation.</p>
+          <p>The materials I used to create the glove were: a sewing machine (mine is a Brother LS-2125); quilting cotton fabric scraps and reclaimed synthetic fabric; scissors, thread, needles; velcro (also reclaimed/recycled); an iron and ironing board; and a hot glue gun.</p>
+          <p>I started with a velcro base. I sewed a piece of velcro approximately the size of the microcontroller onto a rectangle scrap and then hand-sewed the microcontroller to it via the four corner holes of them micrcontroller. These stitches can be easily ripped out and reattached when I need to do my microcontroller soldering. I then attached the other half of the velcro to a scrap roughly the length that I wanted (measuring from my knuckles to my wrist). I sewed this rectangle to another, with a slab of synthetic stretch fabric in between and ironed out the seams so the cotton fabric went in one direction and the stretch fabric out the other. Sandwiching the stretch fabric between two cotton pieces helped to stabilize it as I ran it through the machine, while also keeping the seams clean. I repeated this process with the opposite side of the cotton rectangles, except with two pieces of stretch fabric, leaving a gap for the thumb.</p>
+          <p>I next assembled the palm-side enclosure. I attached a long strip of velcro to a scrap that was roughly the length of the main cotton panel for the back of the hand and then folded the edges in and sewed this to the stretch fabric. I did the same with two smaller pieces of the attaching velcro for the segments that surrounded the thumb. I then trimmed off any excess stretch fabric.</p>
+          <p>The final step was to add a velcro attachment for the coin cell battery pack. The current plan is that this will sit just below the wrist joint, but it's possible it will move. For now, I tacked one side of the velcro at the wrist point by hand-sewing, and hot glued the other side of the velcro to the coin cell case.</p> 
+          <p>The positives of this design include: (1) I can adjust the placement of the microcontroller on the back of the hand; and (2) it would not be difficult to attach a finger-glove apparatus. This isn't my best most neatest stitching, but for a prototype, I think it came out pretty well.</p>
+        </div>
+        <div class="col-sm-3">
+          <p><img src="12supplies.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+          <p><img src="velcro.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+          <p><img src="velcroIMU.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+          <p><img src="sewvelcro.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <p><img src="glove4.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+        </div>
+        <div class="col-sm-3">
+          <p><img src="glove5.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+        </div>
+        <div class="col-sm-3">
+          <p><img src="batteryvelcro3.jpg" class="img-responsive margin" style="width:100%" alt=""></p>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+
+
+      
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-7">    
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
@@ -124,7 +178,7 @@
   </div>
 </div>
 
-<div class="container-fluid bg-7">    
+<div class="container-fluid bg-2">    
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
@@ -137,7 +191,7 @@
   </div>
 </div>
 
-<div class="container-fluid bg-2">    
+<div class="container-fluid bg-7">    
 <!--   <h3 class="margin">Weekly Work</h3><br> -->
   <div class="row">
     <div class="col-sm-3">
