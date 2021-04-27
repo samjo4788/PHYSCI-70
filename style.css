@@ -157,6 +157,22 @@ body {
   color: white;
 }
 
-  h3 {font-size: 16px;
+h3 {font-size: 16px;
 	color: #ffffff;
+}
+
+ol {
+font-size: 16px;
+}
+
+ul {
+font-size: 16px;
+}
+
+ol li {
+font-size: 14px;
+}
+
+ul li {
+font-size: 14px;
 }

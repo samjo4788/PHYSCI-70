@@ -42,7 +42,7 @@
 
 <!-- TITLE Container -->
 <div class="container-fluid2 bg-9 text-center">
-  <p><b>Week 12: Molding, Casting & Sewing</b></p>
+  <p><b>Week 13: Project Integration</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </a> -->
@@ -52,43 +52,12 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>MOLDING & CASTING</b></p>
-    <img src="mst3_movieposter.jpg" class="img-responsive margin" style="width:100%" alt="Movie Poster for Mystery Science Theater 3000 The Movie">
-    <iframe width="250" height="315" src="https://www.youtube.com/embed/Eczr3h-7_CQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p><b>UPDATE 1: BLE AND P5 COMM</b></p>
     </div>
   <div class="col-sm-9">
-    <p>In lab this week, I decided to create a silicon mold of Tom Servo, a character from <a href="https://mst3k.com/">Mystery Science Theater 3000</a>. I bought my husband a figurine of Tom Servo and his counterpart Crow T. Robot for our Christmas tree, but all year round they live next to our TV. The premise of the show is that an evil scientist is torturing the two robots and a human friend by forcing them to watch terrible movies. The trio manages to survive by providing humorous commentary.</p>
-    <p>Based on the size of the figurine, I decided I probably only had enough material to make a one-part mold. Just in case I ended up with extra silicone, I prepared a second item: a stormtrooper helmet.</p>
-    <p>I prepared the container for my mold using an empty Annie's Mac & Cheese box because I thought the plastic coating on the cardboard would help with removing the mold from the box. I also tested Tom Servo's buoyancy with water and he sunk right to the bottom (no surprise there), so I rigged up some supports with extra cardboard and the dowels from the kit so that he would float in the silicone.</p> 
-    <p>The process for creating the mold was fairly straightforward:<br>
-      (1) Pour out the substance from bottle B and stir it up a bit.<br>
-      (2) Add the substance from bottle A and stir for 2–3 minutes.<br>
-      (3) Pour into the mold encasing.<br></p>
-    <p>It turned out that my encasing for Tom was a little too large, AND that he was very buoyant in the mixture, so I quickly adjusted the size of the box using more Annie's mac and cheese box remnants and flattened my cardboard supports. I definitely did not have extra material for a stormtrooper helmet mold!</p>
-    <div class="row">
-      <div class="col-sm-4">
-        <img src="TomServo_Helmet.jpg" class="img-responsive margin" style="width:100%" alt="Tom Servo and a stormtrooper helmet">
-      </div>
-      <div class="col-sm-4">
-        <img src="MoldEncasement2.jpg" class="img-responsive margin" style="width:100%" alt="Tom Servo and a stormtrooper helmet prepared for molding">
-      </div>
-      <div class="col-sm-4">
-        <img src="TomServoCures3.jpg" class="img-responsive margin" style="width:100%" alt="the mold of Tom Servo cures">
-      </div>
-    </div>
-    <p>The silicone was definitely messy, and next time I'll be sure to have a trash can nearby and a bottle of rubbing alcohol, because naturally I managed to get the uncured silicone all over my hands multiple times.<p>
-    <p>The mold took a while to cure. It is supposed to take at least 4 hours, and I let mine sit overnight. In the morning, though, when I removed Tom, there was still some uncured material on his belly area, so I let it cure for the rest of the next day. Then I made a Tom Servo ice cube, colored with a little bit of food coloring! Unfortunately, his arms weren't quite submerged enough to get a deep enough mold, and thus they were very weak. Nevertheless, he made a great scotch on the rocks, and his yellow tinge gave the drink a nice golden color.</p>
-    <div class="row">
-      <div class="col-sm-4">
-       <img src="MoldedTomServo.jpg" class="img-responsive margin" style="width:100%" alt="Tom Servo and his mold">
-     </div>
-     <div class="col-sm-4">
-        <img src="IceTomServo2.jpg" class="img-responsive margin" style="width:100%" alt="Tom Servo in Ice">
-        </div>
-     <div class="col-sm-4">
-        <img src="ScotchTomServo.jpg" class="img-responsive margin" style="width:100%" alt="Ice Tom Servo in a glass of Scotch">
-      </div>
-    </div>
+    <p>After some troubleshooting with my friend Mike, I figured out that all of my BLE and p5 issues from <a href="https://samjo4788.github.io/PHYSCI-70/Week11/index11.html">week 11</a> were the result of my ancient Mac computer (2013). Mike hacked together the code for <a href="https://itp.nyu.edu/physcomp/labs/lab-serial-imu-output-to-p5-js/">IMU to p5 using a serial bridge</a> and <a href="https://create.arduino.cc/projecthub/jingwen_zhu/getting-started-with-p5-ble-js-using-arduino-nano-33-ble-120ea6">the Nano 33 Sense to p5 over BLE</a> to send IMU data over BLE and produce a visualization of the microcontroller and its movements in p5. I was able to get this to work y connecting my microntroller to a different, still old but slightly newer Mac (2016). I have since migrated my arduino programming to this other computer to prevent future communication issues. My plan going forward it to clean up this hacked together code and incorporate the other sensing components, then alter the p5 visualization functions.</p>
+    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/fI571rX4n-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+ 
   </div>
 </div>
 </div>
@@ -98,18 +67,157 @@
 <div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>SEWING (PROTOTYPING THE GLOVE)</b></p>
+    <p><b>UPDATE 2: FINGER DANCING SENSING</b></p>
     </div>
   <div class="col-sm-9">
-    
-    <p>This week, I did an initial prototype of the glove for my final project. You can see my documentation of this on my <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">Final Project Page</a>. 
-  </p> 
-    
+    <p>The finger sensing component of the glove will incorporate a "tap" sense - indicating when the index finger and middle finger are making contact with the thumb -- and a strain resistant sense to measure the movement of the knuckles of each of those fingers. I started with the tap sensing because it seemed the most straightforward. Initially, I thought that using capacitive sensing would work, but then Nathan suggested doing a simple circuit with a digitalRead() output. After some head scratching about how to coordinate the different digitalRead() inputs and outputs while minimizing some wires, a conversation with Mike helped me to realize that I'd be better served to use analogRead and different resistance levels, since I'm measuring for four different possible outputs. He sketched out a simple voltage divider circuit where each finger acted as a switch. I set this up using a breadboard and tested different resistors and then, using the serial monitor, determined thresholds for each output: both fingers making contact, index finger making contact, middle finger making contact, and no fingers making contact. I programmed these thresholds and had the serial monitor indicate which "finger" was making contact. The next step is to incorporate the millis() function to add a timestamp/duration for each change in finger tap state.</p>
+    <div class="row">
+    <div class="col-sm-6">
+      <img src="fingercircuit.png" class="img-responsive margin" style="width:100%" alt="Tinkercad Circuit">
+      </div>
+    <div class="col-sm-6">
+      <img src="hackycircuit.jpg" class="img-responsive margin" style="width:100%" alt="Actual Circuit">
+      </div>
+    </div>
+    <p><pre><code class="language-arduino">
+      int tap = A3; //define pin A3 as the tap sensing pin
+
+      void setup() {
+        // put your setup code here, to run once:
+        Serial.begin(9600);
+        pinMode(tap, INPUT);
+      }
+
+      void loop() {
+        // put your main code here, to run repeatedly:
+      analogRead(tap);
+
+      if(analogRead(tap) >= 100) {
+        Serial.println("both");
+      }
+
+      else if(analogRead(tap) > 80 && analogRead(A3) < 100) {
+        Serial.println("middle");
+      }
+      else if(analogRead(tap) < 30 && analogRead(A3) > 10) {
+        Serial.println("index");
+      }
+
+      else if(analogRead(tap) < 10) {
+        Serial.println("none");
+      }
+      }
+    </code></pre></p>
   </div>
 </div>
 </div>
 
+<!-- third body container -->
+<div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>BILL OF MATERIALS</b></p>
+    <p>(this list is for one glove)</p>
+    </div>
+  <div class="col-sm-9">
+    
+    <p>ELECTRONICS
+      <ul>
+        <li>Whole-Hand Sensing</li>
+        <ul>
+          <li>Arduino Nano 33 BLE Sense</li>
+        </ul>
+        <li>Finger Tap Sensing (2 fingers)</li>
+          <ul>
+          <li>Resistors (1x1kOhm, 1x10kOhm, 1x47kOhm)</li>
+          <li>Conductive Thread</li>
+          <li>Wires (stranded & solid core)</li>
+          </ul>
+        <li>Finger Joint Sensing (2 fingers)</li>
+          <ul>
+          <li>Velostat</li>
+          <li>Aluminum Foil</li>
+          <li>Resistors (2x1kOhm)</li>
+          <li>Wires (stranded & solid core)</li>
+          <li>Conductive Thread</li>
+          <li>Gaff Tape</li>
+          </ul>
+        <li>Power</li>
+          <ul>
+            <li>Coin Cell battery pack</li>
+            <li>Coin Cell batteries</li>
+          </ul>
+        <li>Tools</li>
+        <ul>
+          <li>Multimeter</li>
+          <li>Soldering Iron & Solder</li>
+        </ul>
+        </ul></p>
 
+    <p>SEWING MATERIALS & TOOLS
+      <ul>
+        <li>Cotton fabric</li>
+        <li>Stretch (knit/lycra) fabric</li>
+        <li>Cotton thread</li>
+        <li>Velcro</li>
+        <li>Sewing Machine</li>
+        <li>Needles & Pins</li>
+        <li>Scissors</li>
+        <li>Rotary Cutter</li>
+        <li>Quilting Mat & Ruler</li>
+        <li>Iron</li>
+        <li>Ironing Board</li>
+        </ul></p>
+  </div>
+</div>
+</div>
+
+<!-- FOURTH BODY CONTAINER -->
+
+<div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-3">
+    <p><b>PROJECT PLAN</b></p>
+    </div>
+  <div class="col-sm-9">
+    
+    <p>PROGRAMMING
+    <ol>
+      <li>Incorporate timing data using millis() function into tap sensing code. </li>
+      <li>Integrate tap sensing with strain resistor code.</li>
+      <li>Integrate finger sensing assembly with hand-sensing data (they are not necessarily related, but need to run simulateneously).</li>
+      <li>Confirm data communication over BLE with p5.</li>
+      <li>Test p5 <a href="https://www.geeksforgeeks.org/p5-js-save-function/">save()</a> function.</li>
+      <li>Set up <a href="https://create.arduino.cc/projecthub/millerman4487/view-serial-monitor-over-bluetooth-fbb0e5">BLE to Serial Monitor Communication</a> as backup.</li>
+    </ol></p>
+
+    <p>FABRICATION
+    <ol>
+      <li>Sew prototype of finger sensing.</li>
+      <li>Sew second glove and confirm placement of all components.</li>
+      <li>Solder wiring to microcontroller and sew/attach all components.</li>
+    </ol></p>
+
+    <p>VISUALIZING & AI
+    <ol>
+      <li>Adapt p5 visualization of microcontroller to depict something simpler.</li>
+      <li>Experiment with line graph visualizations.</li>
+      <li>Match gesture identification to the data.</li>
+      <li>Experiment with TensorFlow and the microntroller's AI capabilities for gesture recognition.</li>
+    </ol></p>
+
+    <p>DEMO VIDEO
+    <ol>
+      <li>Sketch out storyboard.</li>
+      <li>Select data visualization method and record.</li>
+      <li>Film hand dancing with and without glove: "Bang Step" sequence.</li>
+      <li>Film footwork of "Bang Step" sequence. Use the sound from this as well.</li>
+      <li>Stitch and edit video together (Adobe Premiere).</li>
+    </ol></p>
+    
+  </div>
+</div>
+</div>
 
 </body>
     
