@@ -67,7 +67,7 @@
 <div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>UPDATE 2: FINGER DANCING SENSING</b></p>
+    <p><b>UPDATE 2: FINGER TAP SENSING</b></p>
     </div>
   <div class="col-sm-9">
     <p>The finger sensing component of the glove will incorporate a "tap" sense - indicating when the index finger and middle finger are making contact with the thumb -- and a strain resistant sense to measure the movement of the knuckles of each of those fingers. I started with the tap sensing because it seemed the most straightforward. Initially, I thought that using capacitive sensing would work, but then Nathan suggested doing a simple circuit with a digitalRead() output. After some head scratching about how to coordinate the different digitalRead() inputs and outputs while minimizing some wires, a conversation with Mike helped me to realize that I'd be better served to use analogRead and different resistance levels, since I'm measuring for four different possible outputs. He sketched out a simple voltage divider circuit where each finger acted as a switch. I set this up using a breadboard and tested different resistors and then, using the serial monitor, determined thresholds for each output: both fingers making contact, index finger making contact, middle finger making contact, and no fingers making contact. I programmed these thresholds and had the serial monitor indicate which "finger" was making contact. The next step is to incorporate the millis() function to add a timestamp/duration for each change in finger tap state.</p>
@@ -112,8 +112,29 @@
 </div>
 </div>
 
-<!-- third body container -->
+<!--third body container-->
+
 <div class="container-fluid bg-7">
+<div class="row">
+  <div class="col-sm-3">
+    <p>UPDATE 3: FINGER JOINT SENSING</p>
+    </div>
+  <div class="col-sm-9">
+    <p>Another component of the finger dancing sensing is to measure the joint movements. This in conjunction with the tap sensing (above), I believe will give me enough information to parse different gestures. I used <a href="https://aspartate.github.io/personal_website/blog/week-11-usb-communication/">Andrew's flex sensor instructions</a> to create my own DIY flex sensor. The only change I made was that I used Gaff Tape instead of duct tape. Gaff tape moves a little more like fabric, and is a little easier to manipulate. I loaded the code that Andrew included on his page and had success! Once I get more velostat, I'll make a smaller version and attach it to my fingers to test out the data thresholds. I'll also need to integrate that data with the tapping data, so that it aligns in time.</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="flexcircuit.jpg" class="img-responsive margin" style="width:100%" alt="Circuit and Flex Sensor">
+      </div>
+      <div class="col-sm-6">
+        <img src="flexsensorgraph.png" class="img-responsive margin" style="width:100%" alt="Graph of flex sensor data">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- fourth body container -->
+<div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
     <p><b>BILL OF MATERIALS</b></p>
@@ -172,9 +193,9 @@
 </div>
 </div>
 
-<!-- FOURTH BODY CONTAINER -->
+<!-- Fifth BODY CONTAINER -->
 
-<div class="container-fluid bg-2">
+<div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
     <p><b>PROJECT PLAN</b></p>
