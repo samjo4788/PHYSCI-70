@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SamJo/physci70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">HOME</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/About/indexA.html">ABOUT</a></li>
+        <li><a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/indexFP.html">FINAL PROJECT</a></li>
+        <li><a href="https://nathanmelenbrink.github.io/ps70/index.html">COURSE SITE</a></li>
+        <!--         <li><a href="#">WHERE</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Second Container -->
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>Glove Pattern and Construction<b></p>
+  <br>
+  <p>Materials & Tools:</p>
+  <ul>
+    <li>stretchy fabric, approximately 15 inches square.</li>
+    <li>Needle & Thread</li>
+    <li>Rotary Cutter and Quilting Mat</li>
+    <li>Scissors</li>
+    <li>Pins</li>
+    <li>Pencil and Paper</li>
+  </ul>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-7">    
+<!--   <h3 class="margin">Weekly Work</h3><br> -->
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>PATTERN METHOD</b></p>
+    </div>
+  <div class="col-sm-9"> 
+      <p>This is the process I used for creating the glove. I wanted to minimize the amount of stitches around the fingertips, to ensure a snug fit. There are many others ways to make gloves, or you could just buy a glove. If you buy one, you'll need to attach the two fabric channels for the flex sensors and a base for the microcontroller.</p>
+      <p><b>Right Hand Pattern</b><ol>
+        <li>Trace your non-dominant hand.</li>
+        <li>Draw a line from where the palm meets the base of the pinky to the point were the middle and ring finger join. Erase the ring finger and pinky finger.</li>
+        <li>Smooth out the finger shapes.</li>
+        <li>Draw a line from the edge of the index finger to the wrist, cutting off the thumb</li>
+        <li>extend the side of the palm by the width of your palm.</li>
+        <li>extend the fingers the length of the fingers, plus a little extra, note where the finger tip edges are with little finger grooves. (when folded over at the finger tip, the the edges of the extensions should match up and align with the height of the palm where it meets the thumb.</li>
+        <li>add 5 cm to the perimeter of your sketch.</li>
+        <li>repeat steps (1) and (4), but this time erase the fingers and hand, keeping the thumb.</li>
+        <li>smooth out the thumb and extend it at the point, mirroring the thumb shape (when folded at the tip, the base of the thumb pieces should match up).</li>
+        <li>add 5 cm to the perimeter of the thumb pattern.</li>
+        <li>Trace  two rectangular pieces that equal the width and length of each finger pattern , plus a little bit of length. This will be the channel for the flex sensor.</li>
+        <li>Cut out the patterns at the outermost perimeter.</li></ol></p>
+      <p><b>Left Hand Pattern</b> -- this is much easier because for the left hand, we only need a fingerless mitt.</p>
+        <p><ol>
+        <li>Trace the pattern you created for the right hand, but leave off the fingers and don’t trace the thumb portion. It’s basically a rectangle.</li>
+        </ol></p>
+    </div>
+  </div>
+</div> 
+
+<div class="container-fluid bg-2">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>SEWING</b></p>
+      </div>
+    <div class="col-sm-9">
+      <p><b>Right Hand Glove</b></p>
+      <ol>
+        <li>Using a rotary cutter and mat, place the pattern over the fabric and gently cut it out by tracing the pattern with the rotary cutter. Try not to stretch the fabric as you do this. You may want to use paper weights to keep the pattern in place. Do this for the hand pattern, the thumb pattern, and the finger channels.</li>
+        <li>Place your cut fabric so that the back of the hand side is facing up and align the two rectangular pieces of fabric over each of the fingers. Then fold over the finger fabric at the tip and pin in place.</li>
+        <li>Sew the sides of the fingers using a <a href="https://youtu.be/S9zegUYdPmg">blanket stitch</a>, with your stitches close together and near the edge of the fabric.</li>
+        <li>Then sew the hangover fabric from the two fingers (be careful not to sew together the channels for the flex sensors).</li>
+        <li>Fold over the thumb and pin. Sew the sides of the thumb using the blanket stitch as with the fingers.</li>
+        <li>At this point, put on your respective glove pieces for fit. If they are too loose, then go in and restitch, trimming fabric as necessary. With the fingers and thumb on your hand, carefully mark with pins where the thumb meets the inside panel of the glove. Remove the pieces and sew the thumb to the inside panel of the glove using the basting stitch as before.</li>
+        <li>Identify the gap between the thumb and the index finger stitching. This is where the corner of your loose fabric end will be attached. This is the piece that wraps around the side of your hand. Pin and sew using basting stitch. </li>
+        <li>Next you will attach the index and middle finger pieces to the back of the hand you just created. Trim these pieces if necessary, pin the edges and sew together with the basting stitch.</li>
+        <li>Try on your glove and make adjustments as necessary for fit.</li>
+        <li>Sew up the remaining side of the thumb to the fabric covering the back of the hand, leaving an opening so that it is easy to pull the glove on and off.</li>
+      </ol>
+
+      <p><b>Left Hand Glove</b>
+        <ol>
+          <li>Using a rotary cutter and mat, place the pattern over the fabric and gently cut it out by tracing the pattern with the rotary cutter. Try not to stretch the fabric as you do this. You may want to use paper weights to keep the pattern in place.</li>
+          <li>Fold the fabric over the hand to assess where the thumb hole will be (the fabric will cover the outside side of the hand). Carefully mark with pins.</li>
+          <li>Using the method above, sew the two sections of the mitt, one above the thumb hole and one below. Test the fit of the glove and that you can pull it on and off.</li>
+          <li></li>
+          <li></li>
+        </ol>
+
+
+       
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-7">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b></b></p>
+      </div>
+    <div class="col-sm-9">
+      <p></p>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-2">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b></b></p>
+      </div>
+    <div class="col-sm-9">
+      <p></p>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+</footer>
+
+</body>
+</html>
