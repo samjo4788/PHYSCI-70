@@ -28,10 +28,7 @@ function setup() {
   const connectButton = createButton('Connect and Start Notifications')
   connectButton.mousePressed(connectAndStartNotify);
 
-  //make the rectangle
-  stroke(0) // outline is black
-  fill(180) // fill is gray
-  rectMODE(CENTER) // RECTANGLE DRAWN FROM CENTER
+
 }
 
 function connectAndStartNotify() {
@@ -84,8 +81,18 @@ function valflex2Callback(data) {
 
 
 
+//draws triangles
+//index finger triangle
+function drawIndex() {
+  stroke(0)
+  fill(180)
+  triangle(180,50,270,((valflex1/800)*400),360,50)
 
-
+//draw middle finger triangle
+  stroke(0)
+  fill(180)
+  triangle(360,50,450,((valflex2/800)*400),540,50)
+}
 // draws the Arduino Nano:
 // function drawMiddle() {
 //   // the base board:
@@ -105,11 +112,5 @@ function draw() {
   // update the drawing:
   background(255); // set background to white
   
-  //push(); // begin object to draw -- right hand
-  
-	scale(valflex1/800)
-	fill(tapID*100) // color depends on the tapID
- 
-
-  //pop(); // end of object
+  drawIndex()
 }
