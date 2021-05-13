@@ -59,17 +59,35 @@
 <!-- WHAT DOES IT DO, DEMO & DATA VISUALIZATION -->
 <div class="container-fluid bg-7">
 <div class="row">
-  <div class="col-sm-3">
-    <p></p>
-    </div>
-  <div class="col-sm-9">
-    <p></p>
+  <div class="col-sm-2">
+    <p>HAND DANCE MODE</p>
   </div>
+  <div class="col-sm-10">
+    <p>The gloves use IMU and proximity sensors to measure movement information. Within the code, I wrapped the accelerometer and gyroscope data into a Madgwick filter so that it would produce values for pitch, yaw, and roll. I then analyzed this output for patterns. For both the right and left hands, the yaw data was mostly noise. This is not surprising as both hands stay pointed in mostly the same direction throughout a dance. The pitch information yielded the most obvious visual patterns, with the roll acting almost like a shadow to the pitch. </p>
+    <p><iframe width="1011" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTVPpi1dzZWKcqDNf20a_4xfSoLqGysIEHHYhCQETUNlyXm8XHwa-qT4DwJJLJ-yBSA8CT83LCYCbce/pubchart?oid=1684965289&amp;format=interactive"></iframe></p>
+  </div>
+  </div>
+
+<div class="row">
+    <div class="col-sm-2">
+      <p>FINGER DANCE MODE</p>
+      <p><div style="width:100%;height:0;padding-bottom:62%;position:relative;"><iframe src="https://giphy.com/embed/pvM1Y4VBpWjQR4fPkT" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/pvM1Y4VBpWjQR4fPkT">via GIPHY</a></p>
+    </div>
+  <div class="col-sm-10">
+    <p><br>I used a basic switch-based circuit to sense when the index finger and middle finger made contact with the thumb. I also used flex sensors that covered the joints of each of these fingers. This data was a little more unwieldy than the IMU data. I believe that this information would be best parsed by a machine learning program. Nevertheless, I pursued some rudimentary visualizations in p5 to see if I could gain any interesting insights. While it was fun to play around with different triangles, the real-time graphic changes were not particularly informative.</p>
+    
+    </div>
+
 </div>
 </div>
 
+
+<div class="container-fluid2 bg-9 text-center">
+  <p><b>How It's Made</b></p>
+</div>
+
 <!-- MATERIALS & SKILLS-->
-<div class="container-fluid bg-2">
+<div class="container-fluid bg-7">
   <p><h3><b>MATERIALS & SKILLS</b></h3></p>
 <div class="row">
   <div class="col-sm-6">
@@ -132,14 +150,14 @@
 </div>
 
 <!-- FABRCIATION --- SEWING -->
-<div class="container-fluid bg-7">
+<div class="container-fluid bg-2">
 
 <div class="row">
   <div class="col-sm-3">
     <p>ASSEMBLE THE GLOVE</p>
     </div>
   <div class="col-sm-9">
-    <p>Follow this method for making patterns and constructing gloves for the right and left hands. Or, buy gloves. If you do the latter, you’ll need to attach two channels of elastic fabric to the index and middle fingers of the right hand.</p>
+    <p>Follow <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/GlovePattern/indexPattern.html">this method for making patterns and constructing gloves</a> for the right and left hands. Or, buy gloves. If you do the latter, you’ll need to attach two channels of elastic fabric to the index and middle fingers of the right hand.</p>
   </div>
 </div>
 
@@ -151,14 +169,14 @@
     <p>On the right hand glove only there are three finger pads. Put on your glove and hold the index and middle fingers against the thumb in a pinching fashion. Note where the fingers touch. Mark these with a piece of tape and remove the glove.</p>
     <p>There are many ways to create finger pads. <a href="https://www.instructables.com/Etextile-VR-Gloves-for-Vive-Tracker/">This tutorial</a> is useful if you want to make finger pads from conductive fabric. My method will explain how to do this using crochet and embroidery of conductive thread. In both cases, the finger pads will be attached to the glove as appliqué.</p>
   
-    <p><ul>Crochet the two finger pads:
+    <p>Crochet the two finger pads:<ul>
       <li>These two pads are smaller than the thumb. You will create each the same, so do this twice. Using 2-ply conductive thread, draw a length of thread and quadruple it. Take the four strands of thread and loosely spin them together. This will serve as your “yarn”. With a crochet hook, crochet a <a href="https://www.youtube.com/watch?v=_yNj1ZGy0PA">magic loop</a> of 7 stitches and then single crochet 1 round. Add rounds if you need a larger finger pad. Finish by pulling the strand through the last loop and using a needle to weave in the ends. Trim. Note: Cut conductive thread with sharp scissors to mitigate fraying.</li>
       </ul></p>
 
-    <p><ul>Embroider the thumb pad:
+    <p>Embroider the thumb pad:<ul>
         <li>Because the thumb pad is larger than the finger pads, it was easier for me to embroider the pad. Using a scrap piece of cotton fabric that is larger than what you need for the finger pad, trace the size of the finger pad you need to cover the thumb with a pencil on the fabric. This will be your guide for the shape of the finger pad. I recommend this be a rectangular shape to be sure that it meets both the index and middle finger, with room for moving about (your fingers won’t hit your thumb in the same place every time). Starting on the left side, embroider a row of stitches using the <a href="https://youtu.be/HjoODQJiwk0">satin stitch</a>, then continue in the other direction to make a second row. Repeat this until you have four rows, or the number of rows you need to cover the area of the finger pad (you’ll see my satin stitches aren’t particularly neat or the same size, but that doesn’t matter as long as they touch and cover the area). When the area of the pad is covered, sew into the satin stitch and trim the tail. Trim the cotton fabric around the finger pad. It may fray a bit, but don’t worry. </li></ul></p>
 
-    <p><ul>Appliqué the finger pads:
+    <p>Appliqué the finger pads:<ul>
         <li>Replace the tape that you attached to your glove with the appropriate finger pad and hold in place with a pin or two. Insert a thimble into the finger tip you plan to sew and use that to push the needle against. Attach the finger pad to the finger tip using the satin stitch, stitching the edge of the finger pad to the glove fabric. Do this for each of the two finger pads and the thumb pad.</li></ul></p>
 
     <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
@@ -338,15 +356,440 @@
 </div>
 
 <!-- FABRICATION -- CODE -->
-<div class="container-fluid bg-7">
+<div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
-    <p></p>
+    <p>CODING THE MICROCONTROLLERS</p>
     </div>
   <div class="col-sm-9">
-    <p></p>
+    <p>I needed two sets of code for each glove. The left hand glove needed to be coded for IMU and proximity information and the right hand glove needed to be coded for IMU, proximity, two flex sensors, and the tap circuit. I started by assembling each coding component separately and then I stitched the code together. Much of this code I adapted from Arduino IDE examples and various tutorials (see the Proposal & Development page for more information about that process).</p>
+    
+    <div class="row">
+      <div class = "col-sm-3">
+        <p>IMU code</p>
+      </div>
+      <div class = "col-sm-9">
+        <p>I derived an IMU code sketch from this ITP tutorial. It uses the Madgwick filter to calculate pitch, yaw, and roll out of the accelerometer and gyroscope data.</p>
+        <p><pre><code class="language-arduino">
+          #include "Arduino_LSM9DS1.h"
+            #include "MadgwickAHRS.h"
+
+            //initalize a Madgwick filter:
+            Madgwick filter;
+            //sensor's sample rate is fixed at 114 Hz:
+            const float sensorRate = 114.00;
+
+            //values for orientation:
+            float roll = 0.0;
+            float pitch = 0.0;
+            float heading = 0.0;
+
+            void setup() {
+              Serial.begin(9600);
+              //attempt to start the IMU:
+              if (!IMU.begin()) {
+                Serial.println("Failed to initialize IMU");
+                //stop here if you can't access the IMU:
+                while(true);
+              }
+
+              //start the filter to run at the sample rate:
+              filter.begin(sensorRate);
+
+            }
+
+            void loop() {
+              //values for acceleration and rotation:
+              float xAcc, yAcc, zAcc;
+              float xGyro, yGyro, zGyro;
+
+              //check if the IMU is ready to read
+              if(IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
+                //read accelerometer and gyrometer:
+                IMU.readAcceleration(xAcc, yAcc, zAcc);
+                IMU.readGyroscope(xGyro, yGyro, zGyro);
+
+                //update the filter, which computes orientation:
+                filter.updateIMU(xGyro, yGyro, zGyro, xAcc, yAcc, zAcc);
+
+                //print the heading, pitch, and roll
+                roll = filter.getRoll();
+                pitch = filter.getPitch();
+                heading = filter.getYaw();
+                
+              }
+
+                //print the filter's results:
+                Serial.print(heading);
+                Serial.print(",");
+                Serial.print(pitch);
+                Serial.print(",");
+                Serial.println(roll);
+            }
+        </code></pre></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class = "col-sm-3">
+        <p>Proximity</p>
+      </div>
+      <div class = "col-sm-9">
+        <p>I used the Arduino example sketch for the on-board gesture sensor in the Arduino Nano 33 BLE Sense. The proximity sensor is basically a fancy photoresistive sensor.</p>
+        <p><pre><code class="language-arduino">
+                  /*
+          APDS9960 - Proximity Sensor
+
+          This example reads proximity data from the on-board APDS9960 sensor of the
+          Nano 33 BLE Sense and prints the proximity value to the Serial Monitor
+          every 100ms.
+
+          The circuit:
+          - Arduino Nano 33 BLE Sense
+
+          This example code is in the public domain.
+        */
+
+        #include <Arduino_APDS9960.h>
+
+        void setup() {
+          Serial.begin(9600);
+          while (!Serial);
+
+          if (!APDS.begin()) {
+            Serial.println("Error initializing APDS9960 sensor!");
+          }
+        }
+
+        void loop() {
+          // check if a proximity reading is available
+          if (APDS.proximityAvailable()) {
+            // read the proximity
+            // - 0   => close
+            // - 255 => far
+            // - -1  => error
+            int proximity = APDS.readProximity();
+
+            // print value to the Serial Monitor
+            Serial.println(proximity);
+          }
+
+          // wait a bit before reading again
+          delay(100);
+        }
+        </code></pre></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class = "col-sm-3">
+        <p>Tap Circuit</p>
+      </div>
+      <div class = "col-sm-9">
+        <p>The tap sensing code reads when the index finger, middle finger, both fingers, or neither finger were making contact with the glove. It does this using different resistor levels as thresholds. I had also wanted to try and incorporate a duration reading, such that whenever the state of the tapping changed, the micrcontroller would produce a time differential. Unfortunately, I was never able to get that code sketch to work.</p>
+        <p><pre><code class="language-arduino">
+          // circuit has two switches. "index" has a 4.7kOhm resistor, "middle" has a 10kOhm resistor; thumb has voltage divider of 1kOhm.
+
+          unsigned long startMillis;  //some global variables available anywhere in the program
+          unsigned long currentMillis;
+          const unsigned long period = 1000;  //the value is a number of milliseconds
+          int tap = A2;
+
+          void setup() {
+            // put your setup code here, to run once:
+            Serial.begin(9600);
+            pinMode(tap, INPUT);
+          }
+
+          void loop() {
+            // put your main code here, to run repeatedly:
+          analogRead(tap);
+
+          if(analogRead(tap) >= 200) {
+            Serial.println("both");
+          }
+
+          else if(analogRead(tap) > 10 && analogRead(tap) < 100) {
+            Serial.println("middle");
+          }
+          else if(analogRead(tap) < 200 && analogRead(tap) > 100) {
+            Serial.println("index");
+          }
+
+          else if(analogRead(tap) < 10) {
+            Serial.println("none");
+          }
+          }
+        </code></pre></p>
+        <p><a href='./TapState_Function.ino' download >Download the code with the faulty function.</a></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class = "col-sm-3">
+        <p>Flex Sensors</p>
+      </div>
+      <div class = "col-sm-9">
+        <p>I used the flex sensor code that <a href="https://aspartate.github.io/personal_website/blog/week-11-usb-communication/">Andrew created</a> and built that out to read two flex sensor readings.</p>
+        <p><pre><code class="language-arduino">
+          const int flex1 = A4;
+          const int flex2 = A6;
+          int valflex1 = 0;
+          int valflex2 = 0;
+
+          void setup() {
+            pinMode(flex1, INPUT);
+            pinMode(flex2, INPUT);
+            Serial.begin(9600);
+
+          }
+
+          void loop() {
+           valflex1 = analogRead(flex1);
+           valflex2 = analogRead(flex2);
+           
+           Serial.print(valflex1);
+           Serial.print('\t');
+           Serial.println(valflex2);
+
+           delay(10);
+
+          }
+        </code></pre></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class = "col-sm-3">
+        <p>Integrating the Code</p>
+      </div>
+      <div class = "col-sm-9">
+        <p>Once I had the individual code pieces, it was not difficult to stitch them together.</p>
+        <p><a href='./DanceGlove_Left.ino' download >Download the code for the left hand (IMU and Proximity)</a></p>
+        <p><a href='./DanceGlove_Right.ino' download >Download the code for the right hand (IMU, Proximity, Tap, and Flex Sensors).</a></p>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <p>P5 COMMUNICATION USING BLE</p>
+    </div>
+  <div class="col-sm-9">
+    <p>I built upon what I learned from Weeks 11 and 12 about using BLE to communicate between a microcontroller and p5. I decided to create code for p5 that focused entirely on the finger sensing, since I had already experimented with visualizing IMU data in those previous weeks. I modified the code that I had used before and after some frustrating debugging efforts, I was able to get the code to work. Like previously, I used the Chrome Web Server to load the p5 visualization from my own repo.</p>
+    <p>Some important changes included changing the BLECharacteristic nature from "Float" to "Int" (this had to happen on both the Arduino sketch and the p5 sketch). I also eliminated the threshold reading that parsed the tap information. I did this so that I could get more interesting results in p5, plus p5 seemed to have issues understanding that bit of data as it was being sent.</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p>Arduino Code</p>
+        <p><pre><code class="language-arduino">
+          //This code collects data from the thumb/tab sensor,
+          // and the two flex sensors on the index and middle fingers.
+          // This code is meant for the right hand glove for the fingers
+
+
+          #include "ArduinoBLE.h" //include the BLE library
+
+          //values for tap sensor
+          const int tap = A2; // pin assigned to read taps via thumb
+          int valtap = 0;
+          //int tapID = 0;
+
+          //values for flex sensors
+          const int flex1 = A4; // pin assigned to read flexing of index finger
+          const int flex2 = A6; // pin assigned to read flexing of middle finger
+          int valflex1 = 0;
+          int valflex2 = 0;
+
+
+
+          //BLE Service
+          BLEService danceService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
+          // a characteristic for each of the accelerometer values x, y, z
+          BLEIntCharacteristic valtapCharacteristic("19B10013-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
+          BLEIntCharacteristic valflex1Characteristic("19B10014-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
+          BLEIntCharacteristic valflex2Characteristic("19B10015-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
+
+          void setup() {
+            Serial.begin(9600);
+
+            //declare pin modes
+            pinMode(tap, INPUT);
+            pinMode(flex1, INPUT);
+            pinMode(flex2, INPUT);
+
+            //attempt to start BLE:
+            if (!BLE.begin()) {
+            Serial.println("starting BLE failed!");
+            }
+
+            BLE.setLocalName("DanceGlove_Fingers");
+            BLE.setAdvertisedService(danceService);
+            danceService.addCharacteristic(valtapCharacteristic);
+            danceService.addCharacteristic(valflex1Characteristic);
+            danceService.addCharacteristic(valflex2Characteristic);
+           
+            // add the service
+            BLE.addService(danceService);
+
+            // init all values to 0
+            valtapCharacteristic.writeValue(0);
+            valflex1Characteristic.writeValue(0);
+            valflex2Characteristic.writeValue(0);
+
+            BLE.advertise();
+            Serial.println("Bluetooth device active, waiting for connections...");
+           
+
+          }
+
+          void loop() {
+
+            //poll for BLE events
+            BLE.poll();
+            
+
+            //variable to tell if data was requested over serial;
+            bool ping = false;
+
+            //values for tap and flex sensors:
+            valtap = analogRead(tap);
+            valflex1 = analogRead(flex1);
+            valflex2 = analogRead(flex2);
+
+
+            //if you get a byte in the serial port, send latest data:
+            while(Serial.available()) {
+              Serial.read(); 
+              ping = true; 
+              }
+            if (ping) {
+
+              //print the results:
+              Serial.print(valtap);
+              Serial.print(",");
+              Serial.print(valflex1);
+              Serial.print(",");
+              Serial.println(valflex2);
+
+              }
+
+            //update the characteristics if they have changed by more than 1:
+              if (abs(valtapCharacteristic.value() - valtap) > 1) {
+              valtapCharacteristic.writeValue(valtap);  
+              }
+              if (abs(valflex1Characteristic.value() - valflex1) > 1) {
+              valflex1Characteristic.writeValue(valflex1);  
+              }
+              if (abs(valflex2Characteristic.value() - valflex2) > 1) {
+              valflex2Characteristic.writeValue(valflex2);  
+              }
+
+          }
+        </code></pre></p>
+      </div>
+      <div class="col-sm-6">
+        <p>p5 Sketch</p>
+        <p><pre><code class="language-arduino">
+          // orientation variables, right
+          let valtap = 0.0;
+          let valflex1 = 0.0;
+          let valflex2 = 0.0;
+
+
+          /* initialize services we're looking for*/
+          //right
+          const serviceUuid = "19b10010-e8f2-537e-4f6c-d104768a1214";
+          const characteristicsUUID = {
+            valtap: "19b10013-e8f2-537e-4f6c-d104768a1214",
+            valflex1: "19b10014-e8f2-537e-4f6c-d104768a1214",
+            valflex2: "19b10015-e8f2-537e-4f6c-d104768a1214",
+          }
+
+          // Declare BLE Object + characteristics
+          let myBLE;
+          let valtapCharacteristic;
+          let valflex1Characteristic;
+          let valflex2Characteristic;
+
+          function setup() {
+            createCanvas(720, 500);
+            myBLE = new p5ble();
+            background("#FFF");
+            // make a button and give it a callback
+            const connectButton = createButton('Connect and Start Notifications')
+            connectButton.mousePressed(connectAndStartNotify);
+
+          }
+
+          function connectAndStartNotify() {
+            myBLE.connect(serviceUuid, gotCharacteristics);
+            //myBLE.connect(gattServiceUuid, gattCharacteristics);
+          }
+
+          function gotCharacteristics(error, characteristics) {
+            if (error) console.log('error: ', error);
+            console.log(characteristics[1].uuid);
+            for (let i = 0; i < characteristics.length; i++) {
+              if (characteristics[i].uuid == characteristicsUUID.button) {
+                buttonCharacteristic = characteristics[i];
+                myBLE.startNotifications(buttonCharacteristic, handleButton);
+              } 
+              else if (characteristics[i].uuid == characteristicsUUID.valtap) {
+                valtapCharacteristic = characteristics[i];
+                myBLE.startNotifications(valtapCharacteristic, valtapCallback);
+              } 
+              else if (characteristics[i].uuid == characteristicsUUID.valflex1){
+                valflex1Characteristic = characteristics[i];
+                myBLE.startNotifications(valflex1Characteristic, valflex1Callback);
+              } 
+              else if (characteristics[i].uuid == characteristicsUUID.valflex2) {
+                valflex2Characteristic = characteristics[i];
+                myBLE.startNotifications(valflex2Characteristic, valflex2Callback);
+              } 
+              else {
+                console.log("nothing");
+              }
+            }
+          }
+
+          function valtapCallback(data) {
+            console.log('valtap: ', data)
+            console.log(Number(data))
+            valtap = data;
+          }
+
+          function valflex1Callback(data) {
+            console.log('valflex1: ', data)
+            valflex1 = data;
+          }
+
+          function valflex2Callback(data) {
+            console.log('valflex2: ', data)
+            valflex2 = data;
+          }
+
+          function draw() {
+            // update the drawing:
+            background(255); // set background to white
+            
+            //index finger triangle
+            stroke(0);
+            fill(valtap/2,valtap, 100);
+            triangle(180,300,270,valflex1,360,300);
+
+            //draw middle finger triangle
+            stroke(0);
+            fill(100, valtap, valtap/2);
+            triangle(360,300,450,valflex2,540,300);
+          }
+        </code></pre></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <!-- NEXT STEPS-->
@@ -357,10 +800,12 @@
     <p>ISSUES TO BE RESOLVED</p>
     </div>
   <div class="col-sm-9">
-    <p><ul>Proximity sensor
+    <p>Proximity sensor
+      <ul>
       <li>While the proximity sensor was useful for collecting data for the machine learning component, it unfortunately did not provide the intended results for indicating which hand was “leading”. This was because of the microcontroller placement. One solution Ould be adjust the microcontroller placement on the glove to take advantage of this sensor. Another solution would be to add a photo resistive sensor to one of the fingers on each hand.</li>
     </ul></p>
-    <p><ul>Durability
+    <p>Durability
+      <ul>
       <li>Durability was a major issue for me throughout this process. Every time I used the right hand glove, I usually damaged it. The primary issue was the the 30AWG wire was breaking off just before the solder joins. I believe that this is a combination of issues. The first is that the 30AWG wire was significantly more flexible than the solder joints, thus it had much greater freedom of movement and this put strain on the wire at the join point. The second is that the wire was so thin that it cannot withstand much twisting. A third issue was that my heat shrink was not quite the right diameter to shrink to the 30AWG size. In the future, I would use stranded wire and a tighter insulation method (electrical tape seemed to work for my repairs, stabilizing the point where the wire meets the soldered joint).</li>
       <li>I also would use conductive fabric for the finger pads instead of conductive thread. Conductive fabric will create a smoother surface against which the fingers can move, and it also would be a more elegant approach.</li>
     </p>
