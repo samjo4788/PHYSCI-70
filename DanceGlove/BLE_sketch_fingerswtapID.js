@@ -21,7 +21,7 @@ let valflex2Characteristic;
 
 
 function setup() {
-  createCanvas(720, 400, WEBGL);
+  createCanvas(720, 500);
   myBLE = new p5ble();
   background("#FFF");
   // make a button and give it a callback
@@ -46,15 +46,15 @@ function gotCharacteristics(error, characteristics) {
     } 
     else if (characteristics[i].uuid == characteristicsUUID.tapID) {
       tapIDCharacteristic = characteristics[i];
-      myBLE.startNotifications(tapIDCharacteristic, tapIDCallback,'float32');
+      myBLE.startNotifications(tapIDCharacteristic, tapIDCallback);
     } 
     else if (characteristics[i].uuid == characteristicsUUID.valflex1){
       valflex1Characteristic = characteristics[i];
-      myBLE.startNotifications(valflex1Characteristic, valflex1Callback,'float32');
+      myBLE.startNotifications(valflex1Characteristic, valflex1Callback);
     } 
     else if (characteristics[i].uuid == characteristicsUUID.valflex2) {
       valflex2Characteristic = characteristics[i];
-      myBLE.startNotifications(valflex2Characteristic, valflex2Callback, 'float32');
+      myBLE.startNotifications(valflex2Characteristic, valflex2Callback);
     } 
     else {
       console.log("nothing");
@@ -103,8 +103,8 @@ function valflex2Callback(data) {
 
 // function drawIndex() {
 // 	stroke(0) // outline black
-// 	fill(180) // fill is grey
-// 	box(60,0,60)
+// 	box(60,0,60)//  fill(180) // fill is grey
+
 // }
 
 
@@ -114,15 +114,52 @@ function draw() {
   //index finger triangle
 
 //push();
-  nostroke();
-  fill(180);
-  triangle(180,50,270,((valflex1/800)*400),360,50);
+  
+if(tapID === 1) {
+  stroke(0);
+  fill(0);
+  triangle(180,300,270,(400*(valflex1/800)),360,300);
 
-//draw middle finger triangle
-  nostroke();
+  //draw middle finger triangle
+  stroke(0);
   fill(180);
-  triangle(360,50,450,((valflex2/800)*400),540,50);
+  triangle(360,300,450,(400*(valflex2/800)),540,300);
+
+}
+else if (tapID === 2) {
+  stroke(0);
+  fill(180);
+  triangle(180,300,270,(400*(valflex1/800)),360,300);
+
+  //draw middle finger triangle
+  stroke(0);
+  fill(0);
+  triangle(360,300,450,(400*(valflex2/800)),540,300);
+}
+
+else if(tapID === 3) {
+
+  stroke(0);
+  fill(0);
+  triangle(180,300,270,(400*(valflex1/800)),360,300);
+
+  //draw middle finger triangle
+  stroke(0);
+  fill(0);
+  triangle(360,300,450,(400*(valflex2/800)),540,300);
+}
+
+else {
+
+  stroke(0);
+  fill(180);
+  triangle(180,300,270,(400*(valflex1/800)),360,300);
+//draw middle finger triangle
+  stroke(0);
+  fill(180);
+  triangle(360,300,450,(400*(valflex2/800)),540,300);
 
 //pop();
+}
 
 }

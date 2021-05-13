@@ -42,22 +42,16 @@
 
 <!-- TITLE Container -->
 <div class="container-fluid2 bg-9 text-center">
-  <p><b>FINAL PROJECT</b></p>
+  <p><b>FINAL PROJECT: DanceGlove</b></p>
  <!--  <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </a> -->
 </div>
 
 <!-- INTRODUCTION -->
-<div class="container-fluid bg-7">
-<div class="row">
-  <div class="col-sm-3">
-    <p></p>
-    </div>
-  <div class="col-sm-9">
-    <p></p>
-  </div>
-</div>
+<div class="container-fluid bg-7 text-center">
+  <p>My final project relates directly to my dissertation research on Irish dancers and the unique (and very musical) ways that they learn, remember, and communicate their dance steps. One technique that dancers use is hand dancing: dancers use their hands or fingers to mimic complex footwork choreography. The goal of this project was to create a pair of gloves that would collect movement information that could then be analyzed and manipulated to examine parameters such as rhythmicity, style, and which could be visualized in a way that can communicate this movement behavior independent of the use of video. The DanceGlove measures whole hand movements and proximity between the left and right hands (using IMU and Photoresistive sensors), and it also measures fine motor movements of the index and middle fingers on the right hand (using flex sensors and a circuit switch).
+
 </div>
 
 
@@ -74,22 +68,63 @@
 </div>
 
 <!-- MATERIALS & SKILLS-->
-<div class="container-fluid bg-7">
+<div class="container-fluid bg-2">
+  <p><h3><b>MATERIALS & SKILLS</b></h3></p>
 <div class="row">
-  <div class="col-sm-3">
-    <p>MATERIALS</p>
+  <div class="col-sm-6">
+  <p>ELECTRONICS
+      <ul>
+        <li>Whole-Hand Sensing</li>
+        <ul>
+          <li><a href="https://store.arduino.cc/usa/nano-33-ble-sense">2 x Arduino Nano 33 BLE Sense</a></li>
+        </ul>
+        <li>Finger Tap Sensing (2 fingers)</li>
+          <ul>
+          <li>1 x 1k Ohm Resistor</li>
+          <li>1 x 4.7k Ohm Resistor</li>
+          <li>1 x 10k Ohm Resistor</li>
+          <li>Conductive Thread</li>
+          <li>Solid Core Wire (30 AWG)</li>
+          </ul>
+        <li>Finger Joint Sensing (2 fingers)</li>
+          <ul>
+          <li><a href="https://www.adafruit.com/product/1361">Velostat</a></li>
+          <li>Aluminum Foil</li>
+          <li>2 x 1k Ohm Resistors</li>
+          <li>Solid Core Wire (30 AWG)</li>
+          <li><a href="https://www.adafruit.com/product/640">Conductive Thread, 2-ply</a></li>
+          <li><a href="https://www.homedepot.com/p/3M-1-88-in-x-54-6-yds-Black-Premium-Matte-Cloth-Gaffers-Tape-GT2/302798748">Gaffer Tape</a></li>
+          </ul>
+        <li>Tools & Supplies</li>
+        <ul>
+          <li>Multimeter</li>
+          <li>Soldering Iron & Solder</li>
+          <li>Wire Trimmers</li>
+          <li>Heat Shrink and/or Electrical Tape</li>
+        </ul>
+        </ul></p>
     </div>
-  <div class="col-sm-9">
-    <p></p>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-3">
+    <div class="col-sm-6">
+    <p>SEWING MATERIALS & TOOLS
+      <ul>
+        <li>Cotton fabric (36 cm square)</li>
+        <li>Stretch (knit/lycra) fabric (approximately 0.5 yard)</li>
+        <li>Felt or thin quilting batting (15 cm square)</li>
+        <li>Cotton thread</li>
+        <li>Velcro</li>
+        <li>Sewing Machine</li>
+        <li>Needles & Pins</li>
+        <li>Scissors</li>
+        <li>Rotary Cutter</li>
+        <li>Quilting Mat & Ruler</li>
+        <li>Iron</li>
+        <li>Ironing Board</li>
+        </ul></p>
     <p>SKILLS</p>
-    </div>
-  <div class="col-sm-9">
-    <p>When appropriate, specific techniques are hyperlinked to tutorials. To create this project, you will need to crochet or embroider basic stitches, hand sew, use a sewing machine (though you could substitute hand sewing if you are patient), solder electronics, and follow along some basic circuitry and programming.</p>
+    <ul>
+    <li>When appropriate, specific techniques are hyperlinked to tutorials. To create this project, you will need to crochet or embroider basic stitches, hand sew, use a sewing machine (though you could substitute hand sewing if you are patient), solder electronics, and follow along some basic circuitry and programming.</li>
+  </ul>
   </div>
 </div>
 
@@ -201,12 +236,26 @@
 
 <!-- NEXT STEPS-->
 <div class="container-fluid bg-7">
+  <p><h3><b>NEXT STEPS</b></h3></p>
 <div class="row">
   <div class="col-sm-3">
-    <p></p>
+    <p>ISSUES TO BE RESOLVED</p>
     </div>
   <div class="col-sm-9">
-    <p></p>
+    <p><ul>Proximity sensor
+      <li>While the proximity sensor was useful for collecting data for the machine learning component, it unfortunately did not provide the intended results for indicating which hand was “leading”. This was because of the microcontroller placement. One solution Ould be adjust the microcontroller placement on the glove to take advantage of this sensor. Another solution would be to add a photo resistive sensor to one of the fingers on each hand.</li>
+    </ul></p>
+    <p><ul>Durability
+      <li>Durability was a major issue for me throughout this process. Every time I used the right hand glove, I usually damaged it. The primary issue was the the 30AWG wire was breaking off just before the solder joins. I believe that this is a combination of issues. The first is that the 30AWG wire was significantly more flexible than the solder joints, thus it had much greater freedom of movement and this put strain on the wire at the join point. The second is that the wire was so thin that it cannot withstand much twisting. A third issue was that my heat shrink was not quite the right diameter to shrink to the 30AWG size. In the future, I would use stranded wire and a tighter insulation method (electrical tape seemed to work for my repairs, stabilizing the point where the wire meets the soldered joint).</li></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <p>MACHINE LEARNING</p>
+    </div>
+  <div class="col-sm-9">
+    <p>Unfortunately, I didn't have the time to learn about and experiment with a machine learning model. I realized as I was working on the coding aspect of the project that this would have to be something I commit serious time to going forward. It will be exciting to see the possibilities!</p>
   </div>
 </div>
 </div>

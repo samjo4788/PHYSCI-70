@@ -1,5 +1,5 @@
 // orientation variables, right
-let tapID = 0.0;
+let valtap = 0.0;
 let valflex1 = 0.0;
 let valflex2 = 0.0;
 
@@ -8,20 +8,20 @@ let valflex2 = 0.0;
 //right
 const serviceUuid = "19b10010-e8f2-537e-4f6c-d104768a1214";
 const characteristicsUUID = {
-  tapID: "19b10013-e8f2-537e-4f6c-d104768a1214",
+  valtap: "19b10013-e8f2-537e-4f6c-d104768a1214",
   valflex1: "19b10014-e8f2-537e-4f6c-d104768a1214",
   valflex2: "19b10015-e8f2-537e-4f6c-d104768a1214",
 }
 
 // Declare BLE Object + characteristics
 let myBLE;
-let tapIDCharacteristic;
+let valtapCharacteristic;
 let valflex1Characteristic;
 let valflex2Characteristic;
 
 
 function setup() {
-  createCanvas(720, 400, WEBGL);
+  createCanvas(720, 500);
   myBLE = new p5ble();
   background("#FFF");
   // make a button and give it a callback
@@ -44,17 +44,17 @@ function gotCharacteristics(error, characteristics) {
       buttonCharacteristic = characteristics[i];
       myBLE.startNotifications(buttonCharacteristic, handleButton);
     } 
-    else if (characteristics[i].uuid == characteristicsUUID.tapID) {
-      tapIDCharacteristic = characteristics[i];
-      myBLE.startNotifications(tapIDCharacteristic, tapIDCallback,'float32');
+    else if (characteristics[i].uuid == characteristicsUUID.valtap) {
+      valtapCharacteristic = characteristics[i];
+      myBLE.startNotifications(valtapCharacteristic, valtapCallback);
     } 
     else if (characteristics[i].uuid == characteristicsUUID.valflex1){
       valflex1Characteristic = characteristics[i];
-      myBLE.startNotifications(valflex1Characteristic, valflex1Callback,'float32');
+      myBLE.startNotifications(valflex1Characteristic, valflex1Callback);
     } 
     else if (characteristics[i].uuid == characteristicsUUID.valflex2) {
       valflex2Characteristic = characteristics[i];
-      myBLE.startNotifications(valflex2Characteristic, valflex2Callback, 'float32');
+      myBLE.startNotifications(valflex2Characteristic, valflex2Callback);
     } 
     else {
       console.log("nothing");
@@ -63,10 +63,10 @@ function gotCharacteristics(error, characteristics) {
 }
 
 
-function tapIDCallback(data) {
-  console.log('tapID: ', data)
+function valtapCallback(data) {
+  console.log('valtap: ', data)
   console.log(Number(data))
-  tapID = data;
+  valtap = data;
 }
 
 function valflex1Callback(data) {
@@ -103,8 +103,8 @@ function valflex2Callback(data) {
 
 // function drawIndex() {
 // 	stroke(0) // outline black
-// 	fill(180) // fill is grey
-// 	box(60,0,60)
+// 	box(60,0,60)//  fill(180) // fill is grey
+
 // }
 
 
@@ -114,15 +114,17 @@ function draw() {
   //index finger triangle
 
 //push();
-  nostroke();
-  fill(180);
-  triangle(180,50,270,((valflex1/800)*400),360,50);
 
+  stroke(0);
+  fill(0,valtap, 255);
+  triangle(180,300,270,(400*(valflex1/800)),360,300);
 //draw middle finger triangle
-  nostroke();
-  fill(180);
-  triangle(360,50,450,((valflex2/800)*400),540,50);
+  
+  stroke(0);
+  fill(255, valtap, 0);
+  triangle(360,300,450,(400*(valflex2/800)),540,300);
 
 //pop();
+
 
 }
