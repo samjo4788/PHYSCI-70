@@ -19,7 +19,6 @@ let valtapCharacteristic;
 let valflex1Characteristic;
 let valflex2Characteristic;
 
-
 function setup() {
   createCanvas(720, 500);
   myBLE = new p5ble();
@@ -27,7 +26,6 @@ function setup() {
   // make a button and give it a callback
   const connectButton = createButton('Connect and Start Notifications')
   connectButton.mousePressed(connectAndStartNotify);
-
 
 }
 
@@ -62,7 +60,6 @@ function gotCharacteristics(error, characteristics) {
   }
 }
 
-
 function valtapCallback(data) {
   console.log('valtap: ', data)
   console.log(Number(data))
@@ -79,52 +76,17 @@ function valflex2Callback(data) {
   valflex2 = data;
 }
 
-
-
-//draws triangles
-//index finger triangle
-// function drawIndex() {
-//   stroke(0)
-//   fill(180)
-//   triangle(180,50,270,((valflex1/800)*400),360,50)
-
-// //draw middle finger triangle
-//   stroke(0)
-// //   fill(180)
-//   triangle(360,50,450,((valflex2/800)*400),540,50)
-// }
-// draws the Arduino Nano:
-// function drawMiddle() {
-//   // the base board:
-// 	stroke(0) // outline black
-// 	fill(180) // fill is grey
-// 	box(60,0,60)
-// }
-
-// function drawIndex() {
-// 	stroke(0) // outline black
-// 	box(60,0,60)//  fill(180) // fill is grey
-
-// }
-
-
 function draw() {
   // update the drawing:
   background(255); // set background to white
+  
   //index finger triangle
-
-//push();
-
   stroke(0);
   fill(valtap/2,valtap, 100);
   triangle(180,300,270,valflex1,360,300);
-//draw middle finger triangle
-  
+
+  //draw middle finger triangle
   stroke(0);
   fill(100, valtap, valtap/2);
   triangle(360,300,450,valflex2,540,300);
-
-//pop();
-
-
 }

@@ -161,6 +161,10 @@ h3 {font-size: 20px;
 	color: black;
 }
 
+h4 {font-size: 20px;
+  color: white;
+}
+
 ol {
 font-size: 16px;
 }
@@ -175,4 +179,9 @@ font-size: 14px;
 
 ul li {
 font-size: 14px;
+}
+
+code.language-arduino {
+  max-height: 400px;
+  overflow: auto;
 }
