@@ -10,9 +10,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css"/>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
@@ -65,7 +65,7 @@
 <div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>TALK TO ME (like web apps and microcontrollers do)</b></p>
+    <p><b>P5 COMMUNICATION</b></p>
     <p><img src="p5pot_sp.jpg" class="img-responsive margin" style="width:100%" alt="potentiometer and breadboard set up for p5 serial bridge communication"></p>
     </div>
   <div class="col-sm-9">
@@ -81,7 +81,7 @@
 <div class="container-fluid bg-7">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>I'M BLUE (DA BOO DEE DA BOO DAI)</b></p>
+    <p><b>BLE COMMUNICATION</b></p>
     </div>
   <div class="col-sm-9">
     <p>Here is my documentation for <a href="https://samjo4788.github.io/PHYSCI-70/FinalProject/Nano33Sense/index.html">setting up the Arduino Nano 33 Sense</a>. The Arduino Nano 33 Sense Board has BLE and Bluetooth capabilities, and since I am making a wearable, I used this week’s assignment to connect the Nano 33 to p5 over BLE. I followed <a href="https://create.arduino.cc/projecthub/jingwen_zhu/getting-started-with-p5-ble-js-using-arduino-nano-33-ble-120ea6">this tutorial from ITP</a>. The tutorial uses a basic button-LED circuit and sketch. Since I didn't want to solder my pins into the board, I got creative with my circuitry and wired up my button with the two digikey mini-hooks and an alligator clip. By some kind of miracle, the sketch loaded and the circuitry worked! All on the first try. </p>
@@ -103,7 +103,7 @@
 <div class="container-fluid bg-2">
 <div class="row">
   <div class="col-sm-3">
-    <p><b>A BRIDGE OVER TROUBLED WATERS</b></p>
+    <p><b>IMU VISUALIZATION</b></p>
     </div>
   <div class="col-sm-9">
     <p>I wanted to get to the point where I could manipulate how the data from the microcontroller would be visualized, so I left the BLE communications for now and returned to my serial bridge connection and p5 web editor, but this time using the Nano 33 and its IMU data. I found this ITP tutorial which uses a <a href="https://itp.nyu.edu/physcomp/labs/lab-serial-imu-output-to-p5-js/">serial connection to read IMU data into a p5 visualization</a>. I modified the tutorial for the Nano 33 Sense by calling a different library. To ensure success, I combined the Arduino sample sketches for "SimpleAccelerometer" and "SimpleGyroscope" and used that base sketch to incorporate the Madgwick Library as instructed in the tutorial. I also needed to figure out what the sensor's sampling rate was, but this seemed elusive through googling. It turned out though that this was easy to find with a simple code line in the Arduino IDE:</p>
@@ -198,7 +198,7 @@
     <p><b>FURTHER EXPLORATIONS</b></p>
     </div>
   <div class="col-sm-9">
-    <p>Be able to display various axes in stacked lines and isolate these lines.</p>
+    <p>Be able to display IMU data in stacked lines and isolate these lines.</p>
     <P>Have the visualization indicate motifs and gestures (this will require machine learning, I think)</p>
     <p>Display rhythmic patterns culled from the movement data (so not necessarily sounded rhythm, though not excluding sounded rhythm either). Because the dancing is rhythmic and musical, the gestures can be defined by their position in time relative to one another. This will assist in gesture recognition and motif parsing.</p>
   </div>
